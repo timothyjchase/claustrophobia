@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Divider, Modal, Portal } from 'semantic-ui-react'
+import { Button, Divider, Header, Modal, Portal } from 'semantic-ui-react'
 
 class DemonAISummaryButton extends PureComponent {
   constructor(props) {
@@ -36,12 +36,14 @@ class DemonAISummaryButton extends PureComponent {
           <Modal.Header>Demon AI Summary</Modal.Header>
           <Modal.Content>
             <div>
-              <p>
-                <span style={{ color: 'red' }}>
-                  <strong>Demon Die</strong>
-                </span>
-                : This die determines when a Demon will be added.
-              </p>
+              <Header as="h4">
+                <Header.Content>
+                  <span style={{ color: 'red' }}>Demon Die</span>
+                  <Header.Subheader>
+                    Determines when a Demon will be added
+                  </Header.Subheader>
+                </Header.Content>
+              </Header>
               <p>
                 During the Threat phase, if there is no demon in play, then a d6
                 is rolled. If the result exceeds the Demon Die, then a demon is
@@ -54,12 +56,14 @@ class DemonAISummaryButton extends PureComponent {
                 can be added.
               </p>
               <Divider />
-              <p>
-                <span style={{ color: 'blue' }}>
-                  <strong>Theat Die</strong>
-                </span>
-                : This die primarily determines when Troglodytes will be added.
-              </p>
+              <Header as="h4">
+                <Header.Content>
+                  <span style={{ color: 'blue' }}>Threat Die</span>
+                  <Header.Subheader>
+                    Determines when Troglodytes will be added (mostly)
+                  </Header.Subheader>
+                </Header.Content>
+              </Header>
               <p>
                 During the Threat phase, if no demon has just been added, and
                 the number of Troglodytes in play is less than the Threat Die,
@@ -77,16 +81,22 @@ class DemonAISummaryButton extends PureComponent {
                 the situation.
               </p>
               <Divider />
-              <p>
-                <strong>Events</strong>: When a Troglogyte is removed, the Demon
-                AI might draw an event card during the next Threat phase.
-              </p>
+              <Header as="h4">
+                <Header.Content>
+                  Events
+                  <Header.Subheader>
+                    Removing Troglogytes increases the chance that the Demon AI
+                    will draw an event card during the next Threat phase.
+                  </Header.Subheader>
+                </Header.Content>
+              </Header>
               <p>
                 The odds of drawing a card increase, the more Troglodytes are
-                removed and the fewer that remain (1 / # of Troglodytes before
-                removal). Removing a Troglodye, when there are 5 remaining,
-                results in 20% chance of drawing an Event. Removing the last
-                Troglodyte will guarantee that an event will be drawn.
+                removed and the fewer that remain (percent chance = 1 / # of
+                Troglodytes before removal). Removing a Troglodye, when there
+                are 5 remaining, results in 20% chance of drawing an Event.
+                Removing the last Troglodyte will guarantee that an event will
+                be drawn.
               </p>
               <p>
                 Only up to 1 Event will be drawn per turn. If the Event is not

@@ -17,6 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://timothyjchase.github.io/claustrophobia",
   "eslintConfig": {
     "extends": "react-app"
   },
