@@ -146,7 +146,7 @@ class SpawnTrogsStep extends Component {
 const CheckTrogsDistanceStep = ({ game }) => (
   <div>
     <Checkbox
-      label="Any Troglogytes 2 or more tiles away from a human?"
+      label="Any Troglogytes 2 or more tiles away from the closest human?"
       onChange={() => (game.trogsFar = !game.trogsFar)}
       checked={game.trogsFar}
     />

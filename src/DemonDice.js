@@ -19,7 +19,7 @@ const DemonDice = ({ game }) => (
           display: 'inline',
           width: '30px',
           height: '30px',
-          margin: '3px',
+          margin: '5px 4px 0px 0px',
         }}
         src={`data:image/png;base64,${
           images[Math.min(Math.max(game.demonDice - 1, 0), 5)]

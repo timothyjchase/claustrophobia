@@ -19,7 +19,7 @@ const ThreatDice = ({ game }) => (
           display: 'inline',
           width: '30px',
           height: '30px',
-          margin: '3px',
+          margin: '5px 0px 0px 4px',
         }}
         src={`data:image/png;base64,${
           images[Math.min(Math.max(game.threatDice - 1, 0), 5)]

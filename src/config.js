@@ -21,6 +21,7 @@ const SCENARIOS = {
   },
   THE_POSSESSED: {
     name: 'The Possessed',
+    demon: 'POSSESSED_ONE',
     demonLimit: 0,
   },
   WHO_DARES_WINS: {
@@ -221,7 +222,8 @@ const EVENTS = {
         to a regular Troglodyte miniature.`
     },
     phase: PHASES.THREAT,
-    complete: game => (game.toughTrogsInPlay = game.toughTrogsInPlay + 1),
+    complete: game => game.addToughTrog(),
+    checkRelevent: game => game.scenario !== SCENARIOS.THE_RITUAL,
   },
   TOXIC_FUMES: {
     name: 'Toxic Fumes',

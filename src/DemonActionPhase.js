@@ -46,7 +46,7 @@ const DemonActionPhase = ({ game }) => (
       defense if tied).
     </p>
     <p>
-      <i>(Obey limit: 3 Demon warriors per tile, 1 per corridor)</i>
+      <i>Obey limit: 3 Demon warriors per tile, 1 per corridor</i>
     </p>
     <Button.Group vertical fluid>
       <Button primary onClick={() => game.completeDemonActionPhase()}>

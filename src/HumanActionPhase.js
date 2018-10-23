@@ -17,16 +17,23 @@ const HumanActionPhase = ({ game }) => (
           <Icon name="cog" /> Demonic Mechanism tile
         </Button>
       )}
+      {game.scenario === 'THE_POSSESSED' && (
+        <Button onClick={() => game.addDemon()}>
+          <Icon name="box" /> Stash tile (Add Possessed One)
+        </Button>
+      )}
       {game.scenario === 'HIT_THEM_WHERE_IT_HURTS' &&
         !game.demonsInPlay && (
           <Button onClick={() => game.addDemon()}>
-            <Icon name="star outline" /> Pentacle Room tile
+            <Icon name="star outline" /> Pentacle Room tile (Add Master of
+            Souls)
           </Button>
         )}
       {game.scenario === 'HIT_THEM_WHERE_IT_HURTS' &&
         game.threatDice >= 3 && (
           <Button onClick={() => game.anyOtherTile()}>
-            <Icon name="square plus outline" /> Any other tile
+            <Icon name="square plus outline" /> Any other tile (Add 2
+            Troglodytes)
           </Button>
         )}
       <Button primary onClick={() => game.completeHumanActionPhase()}>

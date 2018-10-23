@@ -60,21 +60,24 @@ class DemonAISummaryButton extends PureComponent {
                 <Header.Content>
                   <span style={{ color: 'blue' }}>Threat Die</span>
                   <Header.Subheader>
-                    Determines when Troglodytes will be added (mostly)
+                    Determines when Troglodytes will be added
+                    <br />
+                    (also Supernatural Speed or Sharpened Claws)
                   </Header.Subheader>
                 </Header.Content>
               </Header>
               <p>
                 During the Threat phase, if no demon has just been added, and
                 the number of Troglodytes in play is less than the Threat Die,
-                then Troglodytes will be added and then the Threat Die is
-                reduced by 1.
+                then Troglodytes will be added and the Threat Die is reduced by
+                1.
               </p>
               <p>
                 All Troglodytes may gain <strong>Supernatural Speed</strong>{' '}
                 and/or <strong>Sharpened Claws</strong> depending on their
-                proximity to Human warriors, further reducing the Threat Die.
-                When the Threat Die reaches 0, it is rolled again.
+                proximity to Human warriors, further reducing the Threat Die (by
+                2 and 1 respectively). When the Threat Die reaches 0, it is
+                rolled again.
               </p>
               <p>
                 Where the Troglodytes are added will depend on the scenario and
@@ -86,35 +89,30 @@ class DemonAISummaryButton extends PureComponent {
                   Events
                   <Header.Subheader>
                     Removing Troglogytes increases the chance that the Demon AI
-                    will draw an event card during the next Threat phase.
+                    will draw an Event during the next Threat phase.
                   </Header.Subheader>
                 </Header.Content>
               </Header>
               <p>
-                The odds of drawing a card increase, the more Troglodytes are
-                removed and the fewer that remain (percent chance = 1 / # of
-                Troglodytes before removal). Removing a Troglodye, when there
-                are 5 remaining, results in 20% chance of drawing an Event.
-                Removing the last Troglodyte will guarantee that an event will
-                be drawn.
+                The odds of drawing a card increase, the more Troglodytes that
+                are removed and the fewer that remain (percent of drawing an
+                Event = 1 / total number of Troglodytes before removal). For
+                example, removing 1 Troglodye, when there are 5 remaining,
+                results in 20% chance of drawing an Event. Removing the last
+                Troglodyte will guarantee that an event will be drawn.
               </p>
-              <p>
-                Only up to 1 Event will be drawn per turn. If the Event is not
-                applicable, it will be discarded. For example, drawing{' '}
-                <strong>Suicide Attack</strong>, when there are no Troglodytes
-                in play, will be discarded.
-              </p>
+              <p>A maximum of 1 Event can be drawn per turn.</p>
+              <p>The text of an Event may change depending on the scenario.</p>
               <p>
                 The <strong>Trap</strong> and <strong>They Are Legion</strong>{' '}
-                actions from the Board of Destiny have been converted to Events.
-              </p>
-              <p>
-                Read instructions during the game carefully, as the text may
-                change based on the situation or scenario.
+                actions from the Board of Destiny have been converted into
+                Events.
               </p>
               <p>
                 Events may be cancelled with no effect, by using the upper right
-                menu in the Event message.
+                menu in the Event message (like when using{' '}
+                <strong>Our Faith Will Protect Us</strong>
+                ).
               </p>
             </div>
           </Modal.Content>

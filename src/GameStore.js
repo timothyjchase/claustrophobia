@@ -14,11 +14,14 @@ class GameStore {
   demonsInPlay = 0
   demonsAdded = 0
   trogsInPlay = 0
+  trogsAdded = 0
   toughTrogsInPlay = 0
+  toughTrogsAdded = 0
   demonDice = 6
   threatDice = 6
   threatRoll = 0
   threatStep = null
+  eventCount = 0
   eventRequired = false
   legalPlacement = false
   trogsFar = false
@@ -74,7 +77,7 @@ class GameStore {
       EVENTS[this.event.key].checkRelevent &&
       !EVENTS[this.event.key].checkRelevent(this)
     ) {
-      this.removeEvent()
+      this.removeEvent(true)
     }
   }
 
@@ -85,8 +88,11 @@ class GameStore {
   }
 
   removeEvent(skip = false) {
-    if (!skip && this.event.complete) {
-      this.event.complete(this)
+    if (!skip) {
+      this.eventCount = this.eventCount + 1
+      if (this.event.complete) {
+        this.event.complete(this)
+      }
     }
     this.event = null
   }
@@ -113,6 +119,11 @@ class GameStore {
     this.toughTrogsInPlay = this.toughTrogsInPlay - 1
   }
 
+  addToughTrog() {
+    this.toughTrogsInPlay = this.toughTrogsInPlay + 1
+    this.toughTrogsAdded = this.toughTrogsAdded + 1
+  }
+
   auraOfBlessing() {
     this.threatDice = Math.max(0, this.threatDice - 2)
   }
@@ -129,6 +140,7 @@ class GameStore {
     if (this.scenario === 'HIT_THEM_WHERE_IT_HURTS' && this.threatDice >= 3) {
       this.threatDice = Math.max(0, this.threatDice - 2)
       this.trogsInPlay = this.trogsInPlay + 2
+      this.trogsAdded = this.trogsAdded + 2
     }
   }
 
@@ -144,6 +156,7 @@ class GameStore {
 
     if (this.eventRequired) {
       this.drawEvent()
+      this.checkEventPlays(PHASES.THREAT)
     }
     if (this.event && this.event.phase === PHASES.THREAT) {
       this.threatStep = THREAT_PHASE_STEPS.THREAT_EVENT
@@ -184,7 +197,7 @@ class GameStore {
   }
 
   completeThreatEventStep() {
-    this.event = null
+    this.removeEvent()
     this.initThreatPhase()
   }
 
@@ -195,9 +208,10 @@ class GameStore {
     this.completeThreatPhase()
   }
 
-  completeThreatSpawnTrogsStep(trogsAdded) {
+  completeThreatSpawnTrogsStep(trogs) {
     this.threatDice = this.threatDice - 1
-    this.trogsInPlay = this.trogsInPlay + trogsAdded
+    this.trogsInPlay = this.trogsInPlay + trogs
+    this.trogsAdded = this.trogsAdded + trogs
     this.threatStep = THREAT_PHASE_STEPS.CHECK_TROGS_DISTANCE
   }
 
@@ -247,6 +261,7 @@ export default decorate(GameStore, {
   phase: observable,
   demonsInPlay: observable,
   trogsInPlay: observable,
+  toughTrogsInPlay: observable,
   demonDice: observable,
   threatDice: observable,
   threatRoll: observable,

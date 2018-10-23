@@ -7,9 +7,10 @@ import GamePhaseHeader from './GamePhaseHeader'
 import GamePhaseBody from './GamePhaseBody'
 import RulesSummaryButton from './RulesSummaryButton'
 import DemonAISummaryButton from './DemonAISummaryButton'
+import GameOverButton from './GameOverButton'
 import { SCENARIOS } from './config'
 
-const MainMenu = ({ top, width }) => (
+const MainMenu = ({ top, width, game }) => (
   <div
     style={{
       position: 'absolute',
@@ -26,8 +27,24 @@ const MainMenu = ({ top, width }) => (
             text="Restart"
             onClick={() => window.location.reload()}
           />
+          <Dropdown.Divider />
           <RulesSummaryButton icon="book" text="Rules" as={Dropdown.Item} />
           <DemonAISummaryButton icon="bug" text="Demon AI" as={Dropdown.Item} />
+          <Dropdown.Divider />
+          <GameOverButton
+            icon="thumbs up outline"
+            text="Victory"
+            as={Dropdown.Item}
+            game={game}
+            result="Victory"
+          />
+          <GameOverButton
+            icon="thumbs down outline"
+            text="Defeat"
+            as={Dropdown.Item}
+            game={game}
+            result="Defeat"
+          />
         </Dropdown.Menu>
       </Dropdown>
     </div>
@@ -78,7 +95,7 @@ class App extends Component {
             style={{ width: '352px', height: '128px' }}
           />
 
-          <MainMenu top={110} width={352} />
+          <MainMenu top={110} width={352} game={game} />
           <ScenarioTitle top={115} scenario={game.scenario} />
 
           <div style={{ padding: '5px 10px 10px 10px' }}>
