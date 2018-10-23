@@ -18,36 +18,23 @@ class Welcome extends Component {
       <div>
         <p>
           Welcome to the <strong>Demon AI</strong> app for playing the{' '}
-          <strong>Claustrophobia</strong> the board game (by CROC) with a single
-          player.
+          <strong>Claustrophobia</strong> board game (by CROC) solo.
         </p>
         <p>
-          The rules for how to play using this app are{' '}
+          Please start be reading the short{' '}
           <RulesSummaryButton as="a" style={{ cursor: 'pointer' }}>
-            here
+            rules summary
           </RulesSummaryButton>
           .
         </p>
         <p>
-          A summary for how the Demon AI plays is{' '}
+          It may be helpful to read the{' '}
           <DemonAISummaryButton as="a" style={{ cursor: 'pointer' }}>
-            here
-          </DemonAISummaryButton>
-          .
+            Demon AI summary
+          </DemonAISummaryButton>{' '}
+          to understand how it plays.
         </p>
-        <p>
-          This app is based on a solo variant written by Reverend Uncle Bastard
-          (on BGG), but the app includes several changes (mainly to introduce
-          events). The original variant can be found{' '}
-          <a
-            target="_"
-            href="https://www.boardgamegeek.com/thread/1307964/claustrophobia-solo-variant-demon-ai-now-hellhound"
-          >
-            here
-          </a>{' '}
-          .
-        </p>
-        <p>To begin, pick a scenario below and start the game!</p>
+        <p>Now you&apos;re ready to pick a scenario and start playing!</p>
         <Dropdown
           placeholder="Pick a Scenario..."
           search
@@ -71,6 +58,22 @@ class Welcome extends Component {
             Start Game
           </Button>
         </Button.Group>
+        <br />
+        <p>
+          <i>
+            This app is based on a solo variant written by Reverend Uncle
+            Bastard (on BGG), with several changes (mainly to introduce events).
+            If you want to play without the app, or you&apos;re just curious,
+            check out the{' '}
+            <a
+              target="_"
+              href="https://www.boardgamegeek.com/thread/1307964/claustrophobia-solo-variant-demon-ai-now-hellhound"
+            >
+              original variant
+            </a>{' '}
+            .
+          </i>
+        </p>
       </div>
     )
   }

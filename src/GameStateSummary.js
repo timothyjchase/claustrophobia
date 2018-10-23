@@ -10,6 +10,8 @@ import {
   Rating,
   Segment,
 } from 'semantic-ui-react'
+import DemonDice from './DemonDice'
+import ThreatDice from './ThreatDice'
 import { DEMON_WARRIORS } from './config'
 
 const DemonWarriorItem = ({ numberInPlay, onRemove, warrior }) => {
@@ -33,32 +35,34 @@ const DemonWarriorItem = ({ numberInPlay, onRemove, warrior }) => {
             {`Remove 1 ${warrior.name}`}.
           </Popup>
 
-          <Popup
-            inverted
-            trigger={
-              <List.Header as="a">
-                <Label circular horizontal>
-                  {numberInPlay}
-                </Label>
-                {`${warrior.name}${numberInPlay > 1 ? 's' : ''}`}
-                {warrior.health > 1 && (
-                  <Rating
-                    icon="heart"
-                    defaultRating={0}
-                    maxRating={warrior.health}
-                    size="tiny"
-                  />
-                )}
-              </List.Header>
-            }
-          >
-            <div>
-              <Label content={`${warrior.movement} MVT`} />{' '}
-              <Label content={`${warrior.combat} CBT`} />{' '}
-              <Label content={`${warrior.defense} DEF`} />
-              {!!warrior.rules && <div>{renderHTML(warrior.rules)}</div>}
-            </div>
-          </Popup>
+          <List.Header as="a">
+            <Label circular horizontal>
+              {numberInPlay}
+            </Label>
+            <Popup
+              inverted
+              trigger={
+                <span>{`${warrior.name}${numberInPlay > 1 ? 's' : ''}`}</span>
+              }
+            >
+              <div>
+                <Label content={`${warrior.movement} MVT`} />{' '}
+                <Label content={`${warrior.combat} CBT`} />{' '}
+                <Label content={`${warrior.defense} DEF`} />
+                {!!warrior.rules && <div>{renderHTML(warrior.rules)}</div>}
+              </div>
+            </Popup>
+            {warrior.health > 1 && (
+              <div style={{ paddingLeft: '30px' }}>
+                <Rating
+                  icon="heart"
+                  defaultRating={0}
+                  maxRating={warrior.health}
+                  size="tiny"
+                />
+              </div>
+            )}
+          </List.Header>
         </List.Content>
       </List.Item>
     )
@@ -76,26 +80,8 @@ const GameStateSummary = ({ game }) => {
             <div>
               <strong>Turn: {game.turn}</strong>
               <br />
-              <Popup
-                inverted
-                trigger={
-                  <Label color="red" size="large" content={game.demonDice} />
-                }
-              >
-                <strong>Demon Die</strong>: During the Threat phase, if a d6
-                roll exeeds this value, a Demon will be added. Otherwise, this
-                value is reduced by 1.
-              </Popup>
-              <Popup
-                inverted
-                trigger={
-                  <Label color="blue" size="large" content={game.threatDice} />
-                }
-              >
-                <strong>Threat Die</strong>: If no Demon is added during the
-                Threat phase, and there are fewer Troglodytes in play than this
-                value, then Troglodytes will be added.
-              </Popup>
+              <DemonDice game={game} />
+              <ThreatDice game={game} />
             </div>
           </Grid.Column>
           <Grid.Column width={11} verticalAlign="middle">

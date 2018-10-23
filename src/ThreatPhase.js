@@ -56,7 +56,7 @@ const SpawnDemonStep = ({ game }) => (
     )}
     {game.legalPlacement && (
       <p>
-        <i>(Obey legal placement: Human warriors block tiles)</i>
+        <i>Obey legal placement: Human warriors block tiles</i>
       </p>
     )}
     <Button.Group vertical fluid>
@@ -110,11 +110,11 @@ class SpawnTrogsStep extends Component {
           )}
         {game.legalPlacement && (
           <p>
-            <i>(Obey legal placement: Human warriors block tiles)</i>
+            <i>Obey legal placement: Human warriors block tiles</i>
           </p>
         )}
         <p>
-          <i>(Obey limit: 3 Demon warriors per tile, 1 per corridor)</i>
+          <i>Obey tile limit: 3 Demon warriors per tile, 1 per corridor</i>
         </p>
         <Input
           label="Troglogytes added"

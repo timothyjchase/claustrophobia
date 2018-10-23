@@ -55,18 +55,23 @@ class RulesSummaryButton extends PureComponent {
                 as a <strong>Lair</strong> tile instead.
               </p>
               <p>
-                <strong>Demonic Mechanism</strong>: This tile has changed to
+                <strong>Demonic Mechanism*</strong>: This tile has changed to
                 increase the Threat Die by 2, when placed.
               </p>
               <p>
-                <strong>Oil for your lamp</strong>: This advantage has been
+                <strong>Oil for your lamp*</strong>: This advantage has been
                 modified to prevent an event card from being drawn on that turn,
                 in addition to cancelling the effect of the{' '}
                 <strong>Demonic Mechanism</strong> tile.
               </p>
               <p>
-                <strong>Aura of Blessing</strong>: This gift has changed to
+                <strong>Aura of Blessing*</strong>: This gift has changed to
                 reduce the Threat Die by 2.
+              </p>
+              <p>
+                <strong>*</strong> For these actions, you can just click the
+                corresponding button in the app, and the results will be applied
+                automatically.
               </p>
             </div>
           </Modal.Content>

@@ -108,7 +108,14 @@ class DemonAISummaryButton extends PureComponent {
                 The <strong>Trap</strong> and <strong>They Are Legion</strong>{' '}
                 actions from the Board of Destiny have been converted to Events.
               </p>
-              <p />
+              <p>
+                Read instructions during the game carefully, as the text may
+                change based on the situation or scenario.
+              </p>
+              <p>
+                Events may be cancelled with no effect, by using the upper right
+                menu in the Event message.
+              </p>
             </div>
           </Modal.Content>
           <Modal.Actions>
