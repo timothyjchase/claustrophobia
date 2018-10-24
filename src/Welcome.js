@@ -21,7 +21,7 @@ class Welcome extends Component {
           <strong>Claustrophobia</strong> board game (by CROC) solo.
         </p>
         <p>
-          Please start be reading the short{' '}
+          Please start by reading the short{' '}
           <RulesSummaryButton as="a" style={{ cursor: 'pointer' }}>
             rules summary
           </RulesSummaryButton>
