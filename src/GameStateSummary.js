@@ -19,22 +19,14 @@ const DemonWarriorItem = ({ numberInPlay, onRemove, warrior }) => {
     return (
       <List.Item>
         <List.Content>
-          <Popup
-            inverted
-            trigger={
-              <Button
-                icon="remove"
-                floated="right"
-                size="tiny"
-                onClick={onRemove}
-                compact
-                basic
-              />
-            }
-          >
-            {`Remove 1 ${warrior.name}`}.
-          </Popup>
-
+          <Button
+            icon="remove"
+            floated="right"
+            size="tiny"
+            onClick={onRemove}
+            compact
+            basic
+          />
           <List.Header as="a">
             <Label circular horizontal>
               {numberInPlay}
@@ -84,7 +76,11 @@ const GameStateSummary = ({ game }) => {
               <ThreatDice game={game} />
             </div>
           </Grid.Column>
-          <Grid.Column width={11} verticalAlign="middle">
+          <Grid.Column
+            width={11}
+            verticalAlign="middle"
+            style={{ paddingLeft: '0px' }}
+          >
             {!!demonWarriors && (
               <List>
                 <DemonWarriorItem

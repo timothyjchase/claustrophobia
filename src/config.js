@@ -125,15 +125,15 @@ const EVENTS = {
       if (game.scenario === 'THE_SURVIVORS') {
         return `Place a cave-in token on the tile opening with Fresh Air.
           If the Exit tile is already in play, place the token on an opening of
-          the Exit tile connected to another tile.<br><br>
+          the Exit tile that is connected to another tile.<br><br>
           Until the cave-in is cleared, no warrior can cross this opening.<br><br>
           Clearing the cave-in requires a combat action with at least CBT 2 from
           a tile adjacent to the blocked opening. Remove the token once the
           cave-in is cleared.`
       }
-      return `Place a cave-in token on a tile opening separating
+      return `Place a cave-in token on a tile opening between
         Human warriors on adjacent tiles. Ignore this event, if there are no
-        humans on adjacent tiles.<br><br>
+        Human warriors on adjacent tiles.<br><br>
         Until the cave-in is cleared, no warrior can cross this opening.<br><br>
         Clearing the cave-in requires a combat action with at least CBT 2 from
         a tile adjacent to the blocked opening. Remove the token once the
@@ -143,7 +143,7 @@ const EVENTS = {
   },
   CRISIS_OF_FAITH: {
     name: 'Crisis of Faith',
-    description: 'Gifts are cancelled this phase.',
+    description: 'All Gifts are cancelled.',
     phase: PHASES.HUMAN_ACTION,
   },
   DEFECT: {
@@ -159,17 +159,17 @@ const EVENTS = {
   },
   DEMONIC_POSSESSION: {
     name: 'Demonic Possession',
-    description: `The Condemned warrior with the highest CBT and is on a tile
-      with at least 1 other Human warrior attacks another Human warrior on that
-      tile (lowest DEF if multiple to choose from).
-      He cannot use a Grenade, or his Bodyguard Talent.`,
+    description: `The Condemned warrior with the highest CBT sharing a tile
+      with at least 1 other Human warrior attacks a Human warrior on that
+      tile (if multiple, choose lowest DEF then most wounds).
+      He cannot use a Grenade or his Bodyguard Talent.`,
     phase: PHASES.THREAT,
   },
   PANIC: {
     name: 'Panic!',
     description: `Assign Action Dice to Human warriors randomly.<br><br>
       If the assigned Line of Action is cancelled, the Action Dice may be
-      rerolled once.`,
+      rerolled once per Human warrior.`,
     phase: PHASES.INITIATIVE,
   },
   SUICIDE_ATTACK: {
@@ -190,8 +190,8 @@ const EVENTS = {
           connected by an opening, without exceeding the tile limit.
           Ignore the Blocking rule`
       }
-      return `Pick a random Human warrior and move him to a random adjacent
-        tile, connected by an opening, without exceeding the tile limit.
+      return `Using a die, pick a random Human warrior and move him to a
+        random adjacent tile via an opening, without exceeding the tile limit.
         Ignore the Blocking rule.`
     },
     phase: PHASES.THREAT,
@@ -207,16 +207,12 @@ const EVENTS = {
       if (game.scenario === 'THE_SURVIVORS') {
         return `Place a Tough Troglodyte on the tile with the Fresh Air (or
           closest to the Exit tile if it has already been placed).<br><br>
-          This Troglodyte will have the following stats: <strong>MVT 2, CBT 1,
-          DEF 5</strong> and is <strong>Frantic</strong>.<br><br>
           This Troglodyte must be considered individually during combat
           (like a Demon). It is represented by placing the relevant token next
           to a regular Troglodyte miniature.`
       }
       return `Place a Tough Troglodyte on the tile with the most Human
         warriors.<br><br>
-        This Troglodyte will have the following stats: <strong>MVT 2, CBT 1,
-        DEF 5</strong> and is <strong>Frantic</strong>.<br><br>
         This Troglodyte must be considered individually during combat
         (like a Demon). It is represented by placing the relevant token next
         to a regular Troglodyte miniature.`
@@ -228,13 +224,13 @@ const EVENTS = {
   TOXIC_FUMES: {
     name: 'Toxic Fumes',
     description: `Roll a die for each Human warrior on the tile with the most
-      human warriors. The Human warriors suffer a hit on a die result of 3 or
+      Human warriors. A Human warrior suffer a hit on a die result of 3 or
       more.`,
     phase: PHASES.THREAT,
   },
   TRAP: {
     name: 'Trap',
-    description: `Apply 1 hit to the Human warrior with the most hits
+    description: `Apply 1 hit to the Human warrior with the most wounds
       (you may choose if tied).`,
     phase: PHASES.THREAT,
   },
@@ -242,8 +238,7 @@ const EVENTS = {
     name: 'Under the Sign of Satan',
     description: `The Demon gains <strong>+1 MVT</strong>,
       <strong>+1 CBT</strong> and <strong>+1 DEF</strong> until the beginning
-      of the next Threat Phase. Place the appropriate token on their reference
-      card.`,
+      of the next Threat Phase. Place the appropriate token to track this.`,
     phase: PHASES.THREAT,
     checkRelevent: game => game.demonsInPlay > 0,
   },

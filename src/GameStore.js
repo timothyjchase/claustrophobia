@@ -37,7 +37,6 @@ class GameStore {
   }
 
   startPhase(phase) {
-    this.checkEventPlays(phase)
     this.phase = phase
   }
 
@@ -66,18 +65,11 @@ class GameStore {
         ? eventConfig.getDescription(this)
         : eventConfig.description,
       phase: eventConfig.phase,
+      complete: eventConfig.complete,
     }
     this.eventRequired = false
-  }
-
-  checkEventPlays(phase) {
-    if (
-      this.event &&
-      this.event.phase === phase &&
-      EVENTS[this.event.key].checkRelevent &&
-      !EVENTS[this.event.key].checkRelevent(this)
-    ) {
-      this.removeEvent(true)
+    if (eventConfig.checkRelevent && !eventConfig.checkRelevent(this)) {
+      this.drawEvent()
     }
   }
 
@@ -156,7 +148,6 @@ class GameStore {
 
     if (this.eventRequired) {
       this.drawEvent()
-      this.checkEventPlays(PHASES.THREAT)
     }
     if (this.event && this.event.phase === PHASES.THREAT) {
       this.threatStep = THREAT_PHASE_STEPS.THREAT_EVENT
