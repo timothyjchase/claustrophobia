@@ -1,4 +1,5 @@
 import React from 'react'
+import { observer } from 'mobx-react'
 import { Button, Icon, Message } from 'semantic-ui-react'
 import EventMessage from './EventMessage'
 
@@ -22,32 +23,53 @@ const DemonActionPhase = ({ game }) => (
         </Message.Content>
       </Message>
     )}
-    {game.scenario === 'THE_RITUAL' &&
-      !!game.demonsInPlay && (
-        <p>
-          The <strong>Demon of Cruelty</strong> will not move.
-        </p>
-      )}
-    {game.scenario === 'THE_RITUAL' && (
-      <p>
-        All Troglodytes will attempt to move towards the Redeemer in the
-        Pentacle Room. If they are forced to stop by any human warriors they
-        will attack.
-      </p>
-    )}
+
     {game.scenario !== 'THE_RITUAL' && (
-      <p>
-        All Demon warriors move towards the closest human group (largest group
-        if tied).
-      </p>
+      <div>
+        <p>
+          <strong>Activation order</strong>: proximity to Human warriors
+          (closest first).
+        </p>
+        <p>
+          <strong>Action order</strong>: if starting activation on a tile with a
+          Human warrior, attack then move. Otherwise, move then attack.
+        </p>
+        <p>
+          <strong>Move</strong>: towards the closest Human warrior (largest
+          group if tied).
+        </p>
+        <p>
+          <strong>Attack</strong>: most wounded Human warrior (lowest defense if
+          tied).
+        </p>
+      </div>
     )}
-    <p>
-      All Demon warriors attack the most wounded member of the group (lowest
-      defense if tied).
-    </p>
-    <p>
-      <i>Obey limit: 3 Demon warriors per tile, 1 per corridor</i>
-    </p>
+
+    {game.scenario === 'THE_RITUAL' && (
+      <div>
+        <p>
+          <strong>Activation order</strong>: proximity to the Pentacle Room
+          (closest first).
+        </p>
+        <p>
+          <strong>Action order</strong>: if starting activation on a tile with a
+          Human warrior, attack then move. Otherwise, move then attack.
+        </p>
+        <p>
+          <strong>Move</strong>: Troglodytes move towards the Pentacle Room.
+          {!!game.demonsInPlay && (
+            <span>
+              The <strong>Demon of Cruelty</strong> will not move.
+            </span>
+          )}
+        </p>
+        <p>
+          <strong>Attack</strong>: most wounded Human warrior (lowest defense if
+          tied).
+        </p>
+      </div>
+    )}
+    <br />
     <Button.Group vertical fluid>
       <Button primary onClick={() => game.completeDemonActionPhase()}>
         <Icon name="play" /> Next Phase
@@ -56,4 +78,4 @@ const DemonActionPhase = ({ game }) => (
   </div>
 )
 
-export default DemonActionPhase
+export default observer(DemonActionPhase)

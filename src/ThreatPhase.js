@@ -42,21 +42,28 @@ const SpawnDemonStep = ({ game }) => (
         </Message.Content>
       </Message>
     )}
-    {game.scenario !== 'THE_SURVIVORS' && (
-      <p>
-        Add the <strong>{game.getDemon().name}</strong> to the unexplored
-        opening closest to the tile with the largest group of humans.
-      </p>
-    )}
+    {game.scenario !== 'THE_SURVIVORS' &&
+      game.scenario !== 'THE_RITUAL' && (
+        <p>
+          Add the <strong>{game.getDemon().name}</strong> to the unexplored
+          opening closest to the tile with the largest group of humans.
+        </p>
+      )}
     {game.scenario === 'THE_SURVIVORS' && (
       <p>
         Add the <strong>{game.getDemon().name}</strong> to the unexplored
         opening closest to the tile with Fresh Air.
       </p>
     )}
+    {game.scenario === 'THE_RITUAL' && (
+      <p>
+        Add the <strong>{game.getDemon().name}</strong> to the unexplored
+        opening farthest from a Human warrior.
+      </p>
+    )}
     {game.legalPlacement && (
       <p>
-        <i>Obey legal placement: Human warriors block tiles</i>
+        <i>Reminder: Human warriors block tiles</i>
       </p>
     )}
     <Button.Group vertical fluid>
@@ -89,33 +96,36 @@ class SpawnTrogsStep extends Component {
             </Message.Content>
           </Message>
         )}
-        {game.scenario !== 'THE_SURVIVORS' && (
-          <p>
-            Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
-            openings closest to the tile with the largest group of humans.
-          </p>
-        )}
+        {game.scenario !== 'THE_SURVIVORS' &&
+          game.scenario !== 'THE_RITUAL' && (
+            <p>
+              Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
+              openings closest to the tile with the largest group of humans.
+            </p>
+          )}
         {game.scenario === 'THE_SURVIVORS' && (
           <p>
             Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
             openings closest to the tile with Fresh Air.
           </p>
         )}
-        {game.scenario === 'THE_RITUAL' &&
-          !!game.demonsInPlay && (
-            <p>
-              Add <strong>1</strong> additional Troglodyte because the{' '}
-              <strong>Demon of Cruelty</strong> is in play.
-            </p>
-          )}
-        {game.legalPlacement && (
+        {game.scenario === 'THE_RITUAL' && (
           <p>
-            <i>Obey legal placement: Human warriors block tiles</i>
+            Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
+            openings with the following priority:
           </p>
         )}
-        <p>
-          <i>Obey tile limit: 3 Demon warriors per tile, 1 per corridor</i>
-        </p>
+        {game.scenario === 'THE_RITUAL' && (
+          <ul>
+            <li>Seal of Protection on its path to the Pentacle Room</li>
+            <li>Fewest Human warriors on its path to the Pentacle Room </li>
+          </ul>
+        )}
+        {game.legalPlacement && (
+          <p>
+            <i>Reminder: Human warriors block tiles</i>
+          </p>
+        )}
         <Input
           label="Troglogytes added"
           placeholder="0"

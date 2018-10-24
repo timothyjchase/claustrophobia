@@ -154,6 +154,13 @@ class GameStore {
       return
     }
     if (
+      this.scenario === 'THE_RITUAL' &&
+      this.demonsInPlay &&
+      this.threatDice < 6
+    ) {
+      this.threatDice = this.threatDice + 1
+    }
+    if (
       !this.demonsInPlay &&
       this.demonsAdded < SCENARIOS[this.scenario].demonLimit
     ) {

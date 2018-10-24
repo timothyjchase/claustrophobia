@@ -62,7 +62,7 @@ const DEMON_WARRIORS = {
     combat: 0,
     defense: 4,
     rules: `All Troglodytes are <strong>Frantic</strong>.<br />
-        An additional Troglodyte will be added during the Threat phase.`,
+        Add 1 to Threat Die at start of Threat phase.`,
   },
   DEMON_OF_DESTRUCTION: {
     name: 'Demon of Desctruction',
