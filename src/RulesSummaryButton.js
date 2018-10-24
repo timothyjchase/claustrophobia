@@ -37,9 +37,10 @@ class RulesSummaryButton extends PureComponent {
           <Modal.Content>
             <div>
               <p>
-                <strong>General</strong>: Play with the rules from the{' '}
-                <strong>Claustrophbia</strong> board game, unless stated
-                otherwise by this app.
+                <strong>General</strong>: Play using the rules from the{' '}
+                Claustrophbia board game, unless stated otherwise here. Follow
+                the instructions for each phase and track your progress when you
+                complete each phase.
               </p>
               <p>
                 <strong>Setup</strong>: Event cards, Demon cards, Threat Point
@@ -69,9 +70,8 @@ class RulesSummaryButton extends PureComponent {
                 reduce the Threat Die by 2.
               </p>
               <p>
-                <strong>*</strong> For these actions, you can just click the
-                corresponding button in the app, and the results will be applied
-                automatically.
+                <strong>*</strong> Click the button corresponding to each
+                action, and the results will be applied automatically.
               </p>
             </div>
           </Modal.Content>
