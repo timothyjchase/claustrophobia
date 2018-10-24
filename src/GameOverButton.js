@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Header, Modal, Portal } from 'semantic-ui-react'
+import { Button, Modal, Portal } from 'semantic-ui-react'
 import { SCENARIOS } from './config'
 
 class GameOverButton extends PureComponent {
@@ -34,25 +34,16 @@ class GameOverButton extends PureComponent {
         onClose={this.handleClose}
       >
         <Modal open closeOnDimmerClick={false}>
-          <Modal.Header>Game Results</Modal.Header>
+          <Modal.Header>
+            {result === 'Defeat' && (
+              <span style={{ color: 'red' }}>Maybe next time...</span>
+            )}
+            {result === 'Victory' && (
+              <span style={{ color: 'blue' }}>Congratulations!</span>
+            )}
+          </Modal.Header>
           <Modal.Content>
             <div>
-              {result === 'Defeat' && (
-                <Header as="h4">
-                  <Header.Content>
-                    <span style={{ color: 'red' }}>
-                      Better luck next time...
-                    </span>
-                  </Header.Content>
-                </Header>
-              )}
-              {result === 'Victory' && (
-                <Header as="h4">
-                  <Header.Content>
-                    <span style={{ color: 'blue' }}>Congratulations!</span>
-                  </Header.Content>
-                </Header>
-              )}
               <p>
                 <strong>Result</strong>: {result}
               </p>

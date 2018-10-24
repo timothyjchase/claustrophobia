@@ -143,8 +143,8 @@ const EVENTS = {
   },
   CRISIS_OF_FAITH: {
     name: 'Crisis of Faith',
-    description: 'All Gifts are cancelled.',
-    phase: PHASES.HUMAN_ACTION,
+    description: 'Gifts may not be played this turn.',
+    phase: PHASES.INITIATIVE,
   },
   DEFECT: {
     name: 'Defect',

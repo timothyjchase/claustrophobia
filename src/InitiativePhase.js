@@ -9,6 +9,9 @@ const InitiativePhase = ({ game }) => (
       game.event.phase === 'INITIATIVE' && <EventMessage game={game} />}
     <p>Play this phase normally.</p>
     <Button.Group vertical fluid>
+      <Button onClick={() => game.auraOfBlessing()}>
+        <Icon name="heart" /> Aura of Blessing
+      </Button>
       {!game.oilForYourLamp && (
         <Button onClick={() => game.setOilForYourLamp()}>
           <Icon name="tint" /> Oil For Your Lamp

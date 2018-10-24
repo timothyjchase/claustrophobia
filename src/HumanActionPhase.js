@@ -9,9 +9,6 @@ const HumanActionPhase = ({ game }) => (
       game.event.phase === 'HUMAN_ACTION' && <EventMessage game={game} />}
     <p>Record removed warriors and the following actions below:</p>
     <Button.Group vertical fluid>
-      <Button onClick={() => game.auraOfBlessing()}>
-        <Icon name="heart" /> Aura of Blessing
-      </Button>
       {!game.oilForYourLamp && (
         <Button onClick={() => game.demonicMechanismTile()}>
           <Icon name="cog" /> Demonic Mechanism tile
