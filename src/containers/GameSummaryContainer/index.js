@@ -31,5 +31,5 @@ GameSummaryContainer.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { removeDemon, removeToughTrog, removeTrog }
+  { removeDemon, removeToughTrog, removeTrog },
 )(GameSummaryContainer)

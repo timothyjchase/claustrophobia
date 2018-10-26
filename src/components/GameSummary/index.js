@@ -37,8 +37,10 @@ const DemonWarriorItem = ({ numberInPlay, onRemove, warrior }) => {
               }
             >
               <div>
-                <Label content={`${warrior.movement} MVT`} />{' '}
-                <Label content={`${warrior.combat} CBT`} />{' '}
+                <Label content={`${warrior.movement} MVT`} />
+                {' '}
+                <Label content={`${warrior.combat} CBT`} />
+                {' '}
                 <Label content={`${warrior.defense} DEF`} />
                 {!!warrior.rules && <div>{renderHTML(warrior.rules)}</div>}
               </div>
@@ -60,6 +62,12 @@ const DemonWarriorItem = ({ numberInPlay, onRemove, warrior }) => {
   return null
 }
 
+DemonWarriorItem.propTypes = {
+  numberInPlay: PropTypes.number.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  warrior: PropTypes.object.isRequired,
+}
+
 const GameSummary = ({
   currentState,
   removeDemon,
@@ -76,7 +84,10 @@ const GameSummary = ({
         <Grid.Row stretched>
           <Grid.Column width={5} verticalAlign="middle">
             <div>
-              <strong>Turn: {currentState.turn}</strong>
+              <strong>
+                Turn:
+                {currentState.turn}
+              </strong>
               <br />
               <DieImage
                 style={{
@@ -119,12 +130,12 @@ const GameSummary = ({
                 <DemonWarriorItem
                   numberInPlay={currentState.toughTrogsInPlay}
                   onRemove={removeToughTrog}
-                  warrior={DEMON_WARRIORS['TOUGH_TROGLODYTE']}
+                  warrior={DEMON_WARRIORS.TOUGH_TROGLODYTE}
                 />
                 <DemonWarriorItem
                   numberInPlay={currentState.trogsInPlay}
                   onRemove={removeTrog}
-                  warrior={DEMON_WARRIORS['TROGLODYTE']}
+                  warrior={DEMON_WARRIORS.TROGLODYTE}
                 />
               </List>
             )}

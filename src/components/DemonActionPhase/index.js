@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon, Message } from 'semantic-ui-react'
+import { Button, Message } from 'semantic-ui-react'
 
 const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
   <div>
@@ -8,7 +8,9 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
       <Message negative>
         <Message.Header>Supernatural Speed</Message.Header>
         <Message.Content>
-          All Troglodytes gain <strong>+1 MVT</strong>.
+          <span>All Troglodytes gain </span>
+          <strong>+1 MVT</strong>
+          <span>.</span>
         </Message.Content>
       </Message>
     )}
@@ -16,7 +18,9 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
       <Message negative>
         <Message.Header>Sharpened Claws</Message.Header>
         <Message.Content>
-          All Troglodytes are <strong>Frantic</strong>.
+          <span>All Troglodytes are </span>
+          <strong>Frantic</strong>
+          <span>.</span>
         </Message.Content>
       </Message>
     )}
@@ -24,20 +28,21 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
     {currentState.scenario !== 'THE_RITUAL' && (
       <div>
         <p>
-          <strong>Activation order</strong>: proximity to Human warriors
-          (closest first).
+          <strong>Activation order: </strong>
+          <span>proximity to Human warriors (closest first).</span>
         </p>
         <p>
-          <strong>Action order</strong>: if starting activation on a tile with a
-          Human warrior, attack then move. Otherwise, move then attack.
+          <strong>Action order: </strong>
+          if on a tile with a Human warrior, attack then move. Otherwise, move
+          then attack.
         </p>
         <p>
-          <strong>Move</strong>: towards the closest Human warrior (largest
-          group if tied).
+          <strong>Move: </strong>
+          towards the closest Human warrior (largest group if tied).
         </p>
         <p>
-          <strong>Attack</strong>: most wounded Human warrior (lowest defense if
-          tied).
+          <strong>Attack: </strong>
+          most wounded Human warrior (lowest defense if tied).
         </p>
       </div>
     )}
@@ -45,32 +50,39 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
     {currentState.scenario === 'THE_RITUAL' && (
       <div>
         <p>
-          <strong>Activation order</strong>: proximity to the Pentacle Room
-          (closest first).
+          <strong>Activation order: </strong>
+          proximity to the Pentacle Room (closest first).
         </p>
         <p>
-          <strong>Action order</strong>: if starting activation on a tile with a
-          Human warrior, attack then move. Otherwise, move then attack.
+          <strong>Action order: </strong>
+          if on a tile with a Human warrior, attack then move. Otherwise, move
+          then attack.
         </p>
         <p>
-          <strong>Move</strong>: Troglodytes move towards the Pentacle Room.
+          <strong>Move: </strong>
+          Troglodytes move towards the Pentacle Room.
           {!!currentState.demonsInPlay && (
             <span>
-              The <strong>Demon of Cruelty</strong> will not move.
+              <span>The </span>
+              <strong>Demon of Cruelty </strong>
+              will not move.
             </span>
           )}
         </p>
         <p>
-          <strong>Attack</strong>: most wounded Human warrior (lowest defense if
-          tied).
+          <strong>Attack: </strong>
+          most wounded Human warrior (lowest defense if tied).
         </p>
       </div>
     )}
     <br />
     <Button.Group vertical fluid>
-      <Button primary onClick={completeDemonActionPhase}>
-        <Icon name="play" /> Next Phase
-      </Button>
+      <Button
+        primary
+        icon="play"
+        content="Next Phase"
+        onClick={completeDemonActionPhase}
+      />
     </Button.Group>
   </div>
 )

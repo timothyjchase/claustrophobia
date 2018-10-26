@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ViewDocumentPage /> with document should match snapshot 1`] = `
+<div>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

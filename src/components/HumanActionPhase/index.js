@@ -15,30 +15,33 @@ const HumanActionPhase = ({
       {!currentState.oilForYourLamp &&
         currentState.scenario !== 'THE_RITUAL' && (
           <Button onClick={placeDemonicMechanismTile}>
-            <Icon name="cog" /> Demonic Mechanism tile
+            <Icon name="cog" />
+            <span> Demonic Mechanism tile</span>
           </Button>
         )}
       {currentState.scenario === 'THE_POSSESSED' && (
         <Button onClick={addDemon}>
-          <Icon name="box" /> Stash tile (Add Possessed One)
+          <Icon name="box" />
+          <span> Stash tile (Add Possessed One)</span>
         </Button>
       )}
       {currentState.scenario === 'HIT_THEM_WHERE_IT_HURTS' &&
         !currentState.demonsInPlay && (
           <Button onClick={addDemon}>
-            <Icon name="star outline" /> Pentacle Room tile (Add Master of
-            Souls)
+            <Icon name="star outline" />
+            <span> Pentacle Room tile (Add Master of Souls)</span>
           </Button>
         )}
       {currentState.scenario === 'HIT_THEM_WHERE_IT_HURTS' &&
         currentState.threatDice >= 3 && (
           <Button onClick={placeTile}>
-            <Icon name="square plus outline" /> Any other tile (Add 2
-            Troglodytes)
+            <Icon name="square plus outline" />
+            <span> Any other tile (Add 2 Troglodytes)</span>
           </Button>
         )}
       <Button primary onClick={completeHumanActionPhase}>
-        <Icon name="play" /> Next Phase
+        <Icon name="play" />
+        <span> Next Phase</span>
       </Button>
     </Button.Group>
   </div>

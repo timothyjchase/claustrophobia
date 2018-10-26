@@ -28,7 +28,7 @@ const ThreatPhase = ({
   completeThreatSpawnTrogsStep,
   completeThreatEventStep,
 }) => {
-  let StepCompoonent = STEPS_CONFIG[threatStep]
+  const StepCompoonent = STEPS_CONFIG[threatStep]
   let stepProps = {}
   if (threatStep === 'CHECK_DEMON_PLACEMENT') {
     stepProps = { completeThreatDemonPlacementStep }
@@ -54,7 +54,7 @@ const ThreatPhase = ({
 ThreatPhase.propTypes = {
   scenario: PropTypes.string.isRequired,
   threatStep: PropTypes.string.isRequired,
-  legalPlacement: PropTypes.bool,
+  legalPlacement: PropTypes.bool.isRequired,
   threatDice: PropTypes.number.isRequired,
   completeThreatDemonPlacementStep: PropTypes.func.isRequired,
   completeThreatTrogsDistanceStep: PropTypes.func.isRequired,

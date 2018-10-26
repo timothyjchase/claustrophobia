@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon, Input, Message } from 'semantic-ui-react'
+import { Button, Input, Message } from 'semantic-ui-react'
 
 class SpawnTrogsStep extends Component {
   constructor(props) {
@@ -31,20 +31,25 @@ class SpawnTrogsStep extends Component {
         {scenario !== 'THE_SURVIVORS' &&
           scenario !== 'THE_RITUAL' && (
             <p>
-              Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
-              openings closest to the tile with the largest group of humans.
+              Add up to
+              <strong>{` ${maxTrogs} `}</strong>
+              Troglogytes to unexplored openings closest to the tile with the
+              largest group of humans.
             </p>
           )}
         {scenario === 'THE_SURVIVORS' && (
           <p>
-            Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
-            openings closest to the tile with Fresh Air.
+            Add up to
+            <strong>{` ${maxTrogs} `}</strong>
+            Troglogytes to unexplored openings closest to the tile with Fresh
+            Air.
           </p>
         )}
         {scenario === 'THE_RITUAL' && (
           <p>
-            Add up to <strong>{maxTrogs}</strong> Troglogytes to unexplored
-            openings with the following priority:
+            Add up to
+            <strong>{` ${maxTrogs} `}</strong>
+            Troglogytes to unexplored openings with the following priority:
           </p>
         )}
         {scenario === 'THE_RITUAL' && (
@@ -75,10 +80,12 @@ class SpawnTrogsStep extends Component {
           <Button
             primary
             disabled={!trogsAdded}
-            onClick={() => completeThreatSpawnTrogsStep(parseInt(trogsAdded))}
-          >
-            <Icon name="play" /> Next
-          </Button>
+            icon="play"
+            content="Next"
+            onClick={() =>
+              completeThreatSpawnTrogsStep(parseInt(trogsAdded, 10))
+            }
+          />
         </Button.Group>
       </div>
     )
@@ -87,7 +94,7 @@ class SpawnTrogsStep extends Component {
 
 SpawnTrogsStep.propTypes = {
   scenario: PropTypes.string.isRequired,
-  legalPlacement: PropTypes.bool,
+  legalPlacement: PropTypes.bool.isRequired,
   threatDice: PropTypes.number.isRequired,
   completeThreatSpawnTrogsStep: PropTypes.func.isRequired,
 }

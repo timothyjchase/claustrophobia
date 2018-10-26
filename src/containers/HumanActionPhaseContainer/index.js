@@ -39,5 +39,5 @@ HumanActionPhaseContainer.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { addDemon, placeDemonicMechanismTile, placeTile, completeHumanActionPhase }
+  { addDemon, placeDemonicMechanismTile, placeTile, completeHumanActionPhase },
 )(HumanActionPhaseContainer)

@@ -25,5 +25,5 @@ InitiativePhaseContainer.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { completeDemonActionPhase }
+  { completeDemonActionPhase },
 )(InitiativePhaseContainer)

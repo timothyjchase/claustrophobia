@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "settings": {
+    "import/extensions": ["off", "never"]
+  },
+  "rules": {
+    "func-names": ["error", "as-needed"],
+    "no-shadow": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "import/no-absolute-path": "off",
+    "react/forbid-prop-types": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  },
+  "plugins": ["jest"],
+  "env": {
+    "jest/globals": true
+  },
+  "globals": {
+    "shallow": true
+  }
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Container } from 'semantic-ui-react'
 import GameSummaryContainer from '../../containers/GameSummaryContainer'
@@ -9,73 +9,67 @@ import PhaseBody from '../PhaseBody'
 import MainMenu from '../MainMenu'
 import { SCENARIOS } from '../../config'
 
-class MainApp extends Component {
-  render() {
-    const { currentState, startGame, resetGame, undoLastChange } = this.props
+const MainApp = ({ currentState, startGame, resetGame, undoLastChange }) => (
+  <Container>
+    <div
+      style={{
+        maxWidth: '352px',
+        margin: '0 auto',
+        background: 'white',
+        marginTop: '10px',
+      }}
+    >
+      <img
+        src="images/title.png"
+        alt="Claustrophobia"
+        style={{ width: '352px', height: '128px' }}
+      />
 
-    return (
-      <Container>
+      <MainMenu
+        style={{
+          position: 'absolute',
+          zIndex: '1000',
+          top: '110px',
+          width: '352px',
+        }}
+        currentState={currentState}
+        resetGame={resetGame}
+        undoLastChange={undoLastChange}
+      />
+      {!!currentState.scenario && (
         <div
           style={{
-            maxWidth: '352px',
-            margin: '0 auto',
-            background: 'white',
-            marginTop: '10px',
+            position: 'absolute',
+            left: '50%',
+            top: '115px',
+            zIndex: '1000',
           }}
         >
-          <img
-            src="images/title.png"
-            alt="Claustrophobia"
-            style={{ width: '352px', height: '128px' }}
-          />
-
-          <MainMenu
+          <div
             style={{
-              position: 'absolute',
-              zIndex: '1000',
-              top: '110px',
-              width: '352px',
+              position: 'relative',
+              left: '-50%',
             }}
-            currentState={currentState}
-            resetGame={resetGame}
-            undoLastChange={undoLastChange}
-          />
-          {!!currentState.scenario && (
-            <div
-              style={{
-                position: 'absolute',
-                left: '50%',
-                top: '115px',
-                zIndex: '1000',
-              }}
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  left: '-50%',
-                }}
-              >
-                <strong>{SCENARIOS[currentState.scenario].name}</strong>
-              </div>
-            </div>
-          )}
-
-          <div style={{ padding: '5px 10px 10px 10px' }}>
-            {!currentState.scenario && <Welcome startGame={startGame} />}
-            {!!currentState.scenario && (
-              <div>
-                <PhaseHeader phase={currentState.phase} />
-                <EventMessageContainer />
-                <PhaseBody phase={currentState.phase} />
-                <GameSummaryContainer />
-              </div>
-            )}
+          >
+            <strong>{SCENARIOS[currentState.scenario].name}</strong>
           </div>
         </div>
-      </Container>
-    )
-  }
-}
+      )}
+
+      <div style={{ padding: '5px 10px 10px 10px' }}>
+        {!currentState.scenario && <Welcome startGame={startGame} />}
+        {!!currentState.scenario && (
+          <div>
+            <PhaseHeader phase={currentState.phase} />
+            <EventMessageContainer />
+            <PhaseBody phase={currentState.phase} />
+            <GameSummaryContainer />
+          </div>
+        )}
+      </div>
+    </div>
+  </Container>
+)
 
 MainApp.propTypes = {
   currentState: PropTypes.object.isRequired,

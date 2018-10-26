@@ -61,5 +61,5 @@ export default connect(
     completeThreatSpawnDemonStep,
     completeThreatSpawnTrogsStep,
     completeThreatEventStep,
-  }
+  },
 )(ThreatPhaseContainer)

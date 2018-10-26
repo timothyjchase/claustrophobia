@@ -22,32 +22,30 @@ const THREAT_DIE_IMAGES = [
 
 const DieImage = ({ type, value, ...imageProps }) => {
   const images = type === 'DEMON' ? DEMON_DIE_IMAGES : THREAT_DIE_IMAGES
-
+  const index = Math.min(Math.max(value - 1, 0), 5)
   return (
     <Popup
       inverted
-      trigger={
+      trigger={(
         <img
           alt={value}
-          src={`data:image/png;base64,${
-            images[Math.min(Math.max(value - 1, 0), 5)]
-          }`}
+          src={`data:image/png;base64,${images[index]}`}
           {...imageProps}
         />
-      }
+)}
     >
       {type === 'DEMON' && (
         <span>
-          <strong>Demon Die</strong>: During the Threat phase, if a d6 roll
-          exeeds this value, a Demon will be added. Otherwise, this value is
-          reduced by 1.
+          <strong>Demon Die: </strong>
+          During the Threat phase, if a d6 roll exeeds this value, a Demon will
+          be added. Otherwise, this value is reduced by 1.
         </span>
       )}
       {type !== 'DEMON' && (
         <span>
-          <strong>Threat Die</strong>: If no Demon is added during the Threat
-          phase, and there are fewer Troglodytes in play than this value, then
-          Troglodytes will be added.
+          <strong>Threat Die: </strong>
+          If no Demon is added during the Threat phase, and there are fewer
+          Troglodytes in play than this value, then Troglodytes will be added.
         </span>
       )}
     </Popup>

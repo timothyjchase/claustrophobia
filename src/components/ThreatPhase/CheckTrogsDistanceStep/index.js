@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Checkbox, Icon } from 'semantic-ui-react'
+import { Button, Checkbox } from 'semantic-ui-react'
 
 class CheckTrogsDistanceStep extends Component {
   constructor(props) {
@@ -31,12 +31,12 @@ class CheckTrogsDistanceStep extends Component {
         <Button.Group vertical fluid>
           <Button
             primary
+            icon="play"
+            content="Next Phase"
             onClick={() =>
               completeThreatTrogsDistanceStep(trogsFar, trogsClose)
             }
-          >
-            <Icon name="play" /> Next Phase
-          </Button>
+          />
         </Button.Group>
       </div>
     )

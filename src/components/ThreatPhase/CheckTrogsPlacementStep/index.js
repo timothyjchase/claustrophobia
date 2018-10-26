@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Checkbox, Icon } from 'semantic-ui-react'
+import { Button, Checkbox } from 'semantic-ui-react'
 
 class CheckTrogsPlacementStep extends Component {
   constructor(props) {
@@ -15,8 +15,7 @@ class CheckTrogsPlacementStep extends Component {
     return (
       <div>
         <Checkbox
-          label={`At least 1 legal placement for Troglodytes within 4 tiles of
-        a Human warrior?`}
+          label="At least 1 legal placement for Troglodytes within 4 tiles of a Human warrior?"
           onChange={() => this.setState({ legalPlacement: !legalPlacement })}
           checked={legalPlacement}
         />
@@ -25,10 +24,10 @@ class CheckTrogsPlacementStep extends Component {
         <Button.Group vertical fluid>
           <Button
             primary
+            icon="play"
+            content="Next"
             onClick={() => completeThreatTrogsPlacementStep(legalPlacement)}
-          >
-            <Icon name="play" /> Next
-          </Button>
+          />
         </Button.Group>
       </div>
     )

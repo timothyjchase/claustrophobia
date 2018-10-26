@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 const InitiativePhase = ({
   currentState,
@@ -11,17 +11,25 @@ const InitiativePhase = ({
   <div>
     <p>Play this phase normally.</p>
     <Button.Group vertical fluid>
-      <Button onClick={useAuraOfBlessing}>
-        <Icon name="heart" /> Aura of Blessing
-      </Button>
+      <Button
+        icon="heart"
+        content="Aura of Blessing"
+        onClick={useAuraOfBlessing}
+      />
       {!currentState.oilForYourLamp && (
-        <Button onClick={useOilForYourLamp}>
-          <Icon name="tint" /> Oil For Your Lamp
-        </Button>
+        <Button
+          icon="tint"
+          content="Oil For Your Lamp"
+          onClick={useOilForYourLamp}
+        />
       )}
-      <Button primary fluid onClick={completeInitiativePhase}>
-        <Icon name="play" /> Next Phase
-      </Button>
+      <Button
+        primary
+        fluid
+        icon="play"
+        content="Next Phase"
+        onClick={completeInitiativePhase}
+      />
     </Button.Group>
   </div>
 )

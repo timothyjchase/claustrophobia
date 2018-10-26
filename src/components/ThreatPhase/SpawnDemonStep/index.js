@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon, Message } from 'semantic-ui-react'
+import { Button, Message } from 'semantic-ui-react'
 import { DEMON_WARRIORS, SCENARIOS } from '../../../config'
 
 const SpawnDemonStep = ({
@@ -22,20 +22,24 @@ const SpawnDemonStep = ({
       {scenario !== 'THE_SURVIVORS' &&
         scenario !== 'THE_RITUAL' && (
           <p>
-            Add the <strong>{demon.name}</strong> to the unexplored opening
-            closest to the tile with the largest group of humans.
+            Add the
+            <strong>{` ${demon.name} `}</strong>
+            to the unexplored opening closest to the tile with the largest group
+            of humans.
           </p>
         )}
       {scenario === 'THE_SURVIVORS' && (
         <p>
-          Add the <strong>{demon.name}</strong> to the unexplored opening
-          closest to the tile with Fresh Air.
+          Add the
+          <strong>{` ${demon.name} `}</strong>
+          to the unexplored opening closest to the tile with Fresh Air.
         </p>
       )}
       {scenario === 'THE_RITUAL' && (
         <p>
-          Add the <strong>{demon.name}</strong> to the unexplored opening
-          farthest from a Human warrior.
+          Add the
+          <strong>{` ${demon.name} `}</strong>
+          to the unexplored opening farthest from a Human warrior.
         </p>
       )}
       {legalPlacement && (
@@ -44,9 +48,12 @@ const SpawnDemonStep = ({
         </p>
       )}
       <Button.Group vertical fluid>
-        <Button primary onClick={completeThreatSpawnDemonStep}>
-          <Icon name="play" /> Next Phase
-        </Button>
+        <Button
+          primary
+          icon="play"
+          content="Next Phase"
+          onClick={completeThreatSpawnDemonStep}
+        />
       </Button.Group>
     </div>
   )
@@ -54,7 +61,7 @@ const SpawnDemonStep = ({
 
 SpawnDemonStep.propTypes = {
   scenario: PropTypes.string.isRequired,
-  legalPlacement: PropTypes.bool,
+  legalPlacement: PropTypes.bool.isRequired,
   completeThreatSpawnDemonStep: PropTypes.func.isRequired,
 }
 

@@ -73,11 +73,13 @@ class DemonAISummaryButton extends PureComponent {
                 1.
               </p>
               <p>
-                All Troglodytes may gain <strong>Supernatural Speed</strong>{' '}
-                and/or <strong>Sharpened Claws</strong> depending on their
-                proximity to Human warriors, further reducing the Threat Die (by
-                2 and 1 respectively). When the Threat Die reaches 0, it is
-                rolled again.
+                All Troglodytes may gain
+                <strong> Supernatural Speed </strong>
+                and/or
+                <strong> Sharpened Claws </strong>
+                depending on their proximity to Human warriors, further reducing
+                the Threat Die (by 2 and 1 respectively). When the Threat Die
+                reaches 0, it is rolled again.
               </p>
               <p>
                 Where the Troglodytes are added will depend on the scenario and
@@ -104,14 +106,17 @@ class DemonAISummaryButton extends PureComponent {
               <p>A maximum of 1 Event can be drawn per turn.</p>
               <p>The text of an Event may change depending on the scenario.</p>
               <p>
-                The <strong>Trap</strong> and <strong>They Are Legion</strong>{' '}
+                The
+                <strong> Trap </strong>
+                and
+                <strong> They Are Legion </strong>
                 actions from the Board of Destiny have been converted into
                 Events.
               </p>
               <p>
                 Events may be cancelled with no effect, by using the upper right
-                menu in the Event message (like when using{' '}
-                <strong>Our Faith Will Protect Us</strong>
+                menu in the Event message (like when using
+                <strong> Our Faith Will Protect Us</strong>
                 ).
               </p>
             </div>

@@ -9,7 +9,7 @@ ReactDOM.render(
   <Provider store={store}>
     <MainAppContainer />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'), // eslint-disable-line no-undef
 )
 
 serviceWorker.register()

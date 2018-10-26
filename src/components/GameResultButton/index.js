@@ -50,29 +50,38 @@ class GameOverButton extends PureComponent {
           <Modal.Content>
             <div>
               <p>
-                <strong>Result</strong>: {result}
+                <strong>Result: </strong>
+                {result}
               </p>
               <p>
-                <strong>Scenario</strong>:{' '}
+                <strong>Scenario: </strong>
                 {(SCENARIOS[currentState.scenario] || {}).name}
               </p>
               <p>
-                <strong>Turn</strong>: {currentState.turn}
+                <strong>Turn: </strong>
+                {currentState.turn}
               </p>
               <p>
-                <strong>Demons</strong>: {currentState.demonsInPlay} /{' '}
+                <strong>Demons: </strong>
+                {currentState.demonsInPlay}
+                {' / '}
                 {currentState.demonsAdded}
               </p>
               <p>
-                <strong>Troglodytes</strong>: {currentState.trogsInPlay} /{' '}
+                <strong>Troglodytes: </strong>
+                {currentState.trogsInPlay}
+                {' / '}
                 {currentState.trogsAdded}
               </p>
               <p>
-                <strong>Tough Troglodytes</strong>:{' '}
-                {currentState.toughTrogsInPlay} / {currentState.toughTrogsAdded}
+                <strong>Tough Troglodytes: </strong>
+                {currentState.toughTrogsInPlay}
+                {' / '}
+                {currentState.toughTrogsAdded}
               </p>
               <p>
-                <strong>Events</strong>: {currentState.eventCount}
+                <strong>Events: </strong>
+                {currentState.eventCount}
               </p>
             </div>
           </Modal.Content>

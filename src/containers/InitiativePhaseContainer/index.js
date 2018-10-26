@@ -35,5 +35,5 @@ InitiativePhaseContainer.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { useAuraOfBlessing, useOilForYourLamp, completeInitiativePhase }
+  { useAuraOfBlessing, useOilForYourLamp, completeInitiativePhase },
 )(InitiativePhaseContainer)

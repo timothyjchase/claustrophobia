@@ -4,11 +4,9 @@ import { connect } from 'react-redux'
 import { startGame, resetGame, undoLastChange } from '../../actions'
 import MainApp from '../../components/MainApp'
 
-const mapStateToProps = state => {
-  return {
-    currentState: state.current,
-  }
-}
+const mapStateToProps = state => ({
+  currentState: state.current,
+})
 
 const MainAppContainer = ({
   currentState,
@@ -33,5 +31,5 @@ MainAppContainer.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { startGame, resetGame, undoLastChange }
+  { startGame, resetGame, undoLastChange },
 )(MainAppContainer)

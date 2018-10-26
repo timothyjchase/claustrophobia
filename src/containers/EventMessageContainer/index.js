@@ -25,5 +25,5 @@ EventMessageContainer.propTypes = {
 
 export default connect(
   mapStateToProps,
-  { removeEvent }
+  { removeEvent },
 )(EventMessageContainer)
