@@ -3,6 +3,10 @@ const SCENARIOS = {
     name: 'The Survivors',
     demon: 'UNDERGROUND_HUNTER',
     demonLimit: 2,
+    demonSpawnLocation: `<li>the tile with <strong>Fresh Air</strong></li>
+      <li>the <strong>Exit</strong> tile</li>`,
+    trogsSpawnLocation: `<li>the tile with <strong>Fresh Air</strong></li>
+      <li>the <strong>Exit</strong> tile</li>`,
   },
   HOLDING_BACK_THE_INVASION: {
     name: 'Holding Back The Invasion',
@@ -18,6 +22,9 @@ const SCENARIOS = {
     name: 'The Ritual',
     demon: 'DEMON_OF_CRUELTY',
     demonLimit: 2,
+    demonSpawnLocation: `<li>a path to the Pentacle Room with the <strong>fewest</strong> Human warriors</li>`,
+    trogsSpawnLocation: `<li>a path to the Pentacle Room with a <strong>Seal of Protection</strong></li>
+    <li>a path to the Pentacle Room with the <strong>fewest</strong> Human warriors</li>`,
   },
   THE_POSSESSED: {
     name: 'The Possessed',

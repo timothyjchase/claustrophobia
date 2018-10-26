@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import renderHTML from 'react-render-html'
 import { Button, Input, Message } from 'semantic-ui-react'
+import { SCENARIOS } from '../../../config'
 
 class SpawnTrogsStep extends Component {
   constructor(props) {
@@ -18,6 +20,10 @@ class SpawnTrogsStep extends Component {
       completeThreatSpawnTrogsStep,
     } = this.props
     const { trogsAdded, maxTrogs } = this.state
+    const spawnLocation =
+      SCENARIOS[scenario].demonSpawnLocation ||
+      '<li>the <strong>largest group</strong> of Human warriors</li>'
+
     return (
       <div>
         {!legalPlacement && (
@@ -28,41 +34,15 @@ class SpawnTrogsStep extends Component {
             </Message.Content>
           </Message>
         )}
-        {scenario !== 'THE_SURVIVORS' &&
-          scenario !== 'THE_RITUAL' && (
-            <p>
-              Add up to
-              <strong>{` ${maxTrogs} `}</strong>
-              Troglogytes to unexplored openings closest to the tile with the
-              largest group of humans.
-            </p>
-          )}
-        {scenario === 'THE_SURVIVORS' && (
-          <p>
-            Add up to
-            <strong>{` ${maxTrogs} `}</strong>
-            Troglogytes to unexplored openings closest to the tile with Fresh
-            Air.
-          </p>
-        )}
-        {scenario === 'THE_RITUAL' && (
-          <p>
-            Add up to
-            <strong>{` ${maxTrogs} `}</strong>
-            Troglogytes to unexplored openings with the following priority:
-          </p>
-        )}
-        {scenario === 'THE_RITUAL' && (
-          <ul>
-            <li>Seal of Protection on its path to the Pentacle Room</li>
-            <li>Fewest Human warriors on its path to the Pentacle Room </li>
-          </ul>
-        )}
+        <p>
+          Add up to
+          <strong>{` ${maxTrogs} `}</strong>
+          Troglogytes to tiles closest to:
+        </p>
+        <ul>{renderHTML(spawnLocation)}</ul>
         {legalPlacement && (
           <p>
-            <i>
-              Reminder: Human warriors prevent the appearance of Troglodytes
-            </i>
+            <i>Reminder: Human warriors block tiles with unexplored openings</i>
           </p>
         )}
         <Input

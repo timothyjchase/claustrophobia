@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import renderHTML from 'react-render-html'
 import { Button, Message } from 'semantic-ui-react'
 import { DEMON_WARRIORS, SCENARIOS } from '../../../config'
 
@@ -9,6 +10,9 @@ const SpawnDemonStep = ({
   completeThreatSpawnDemonStep,
 }) => {
   const demon = DEMON_WARRIORS[(SCENARIOS[scenario] || {}).demon] || {}
+  const spawnLocation =
+    SCENARIOS[scenario].demonSpawnLocation ||
+    '<li>the <strong>largest group</strong> of Human warriors</li>'
   return (
     <div>
       {!legalPlacement && (
@@ -19,32 +23,15 @@ const SpawnDemonStep = ({
           </Message.Content>
         </Message>
       )}
-      {scenario !== 'THE_SURVIVORS' &&
-        scenario !== 'THE_RITUAL' && (
-          <p>
-            Add the
-            <strong>{` ${demon.name} `}</strong>
-            to the unexplored opening closest to the tile with the largest group
-            of humans.
-          </p>
-        )}
-      {scenario === 'THE_SURVIVORS' && (
-        <p>
-          Add the
-          <strong>{` ${demon.name} `}</strong>
-          to the unexplored opening closest to the tile with Fresh Air.
-        </p>
-      )}
-      {scenario === 'THE_RITUAL' && (
-        <p>
-          Add the
-          <strong>{` ${demon.name} `}</strong>
-          to the unexplored opening farthest from a Human warrior.
-        </p>
-      )}
+      <p>
+        Add up the
+        <strong>{` ${demon.name} `}</strong>
+        to the tile closest to:
+      </p>
+      <ul>{renderHTML(spawnLocation)}</ul>
       {legalPlacement && (
         <p>
-          <i>Reminder: Human warriors block tiles</i>
+          <i>Reminder: Human warriors block tiles with unexplored openings</i>
         </p>
       )}
       <Button.Group vertical fluid>

@@ -13,13 +13,13 @@ const InitiativePhase = ({
     <Button.Group vertical fluid>
       <Button
         icon="heart"
-        content="Aura of Blessing"
+        content="Aura of Blessing (-2 Threat Die)"
         onClick={useAuraOfBlessing}
       />
       {!currentState.oilForYourLamp && (
         <Button
           icon="tint"
-          content="Oil For Your Lamp"
+          content="Oil For Your Lamp (No Events)"
           onClick={useOilForYourLamp}
         />
       )}
