@@ -4,6 +4,7 @@ exports[`<CheckTrogsDistanceStep /> with basic props should match snapshot 1`] =
 <div>
   <Checkbox
     checked={false}
+    id="trogsFar"
     label="Any Troglogytes 2 or more tiles away from the closest human?"
     onChange={[Function]}
     type="checkbox"
@@ -12,6 +13,7 @@ exports[`<CheckTrogsDistanceStep /> with basic props should match snapshot 1`] =
   <br />
   <Checkbox
     checked={false}
+    id="trogsClose"
     label="Any Troglogytes adjacent to or on the same tile as a human?"
     onChange={[Function]}
     type="checkbox"

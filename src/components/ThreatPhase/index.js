@@ -51,7 +51,7 @@ const ThreatPhase = ({
       legalPlacement,
       completeThreatSpawnTrogsStep,
     }
-  } else if (threatStep === 'THREAT_EVENT') {
+  } else {
     stepProps = { completeThreatEventStep }
   }
   return <StepCompoonent {...stepProps} />

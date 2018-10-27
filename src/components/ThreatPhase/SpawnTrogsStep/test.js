@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Input } from 'semantic-ui-react'
 import SpawnTrogsStep from './index'
 
 describe('<SpawnTrogsStep />', () => {
@@ -19,6 +20,19 @@ describe('<SpawnTrogsStep />', () => {
     })
     it('default trogs added = 6', () => {
       expect(component.state().trogsAdded).toEqual(6)
+    })
+    it('input should change trogsAdded', () => {
+      expect(component.state().trogsAdded).toEqual(6)
+      component.find(Input).prop('onChange')({}, { value: 1 })
+      expect(component.state().trogsAdded).toEqual(1)
+    })
+    it('button should completeThreatSpawnTrogsStep with trogsAdded', () => {
+      const { trogsAdded } = component.state()
+      component.find(Button).prop('onClick')()
+      expect(props.completeThreatSpawnTrogsStep).toBeCalled()
+      expect(props.completeThreatSpawnTrogsStep.mock.calls[0][0]).toBe(
+        trogsAdded,
+      )
     })
   })
   describe('with no location, no legal placement, threat 2', () => {

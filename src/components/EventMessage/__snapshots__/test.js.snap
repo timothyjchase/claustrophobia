@@ -1,5 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<EventMessage /> with event no description should match snapshot 1`] = `
+<Message
+  negative={true}
+>
+  <div
+    style={
+      Object {
+        "float": "right",
+      }
+    }
+  >
+    <Dropdown
+      additionLabel="Add "
+      additionPosition="top"
+      closeOnBlur={true}
+      deburr={false}
+      error={true}
+      icon="dropdown"
+      minCharacters={1}
+      noResultsMessage="No results found."
+      openOnFocus={true}
+      renderLabel={[Function]}
+      searchInput="text"
+      selectOnBlur={true}
+      selectOnNavigation={true}
+      text=""
+      wrapSelection={true}
+    >
+      <DropdownMenu
+        direction="left"
+      >
+        <DropdownItem
+          onClick={[MockFunction]}
+          text="Cancel Event"
+        />
+      </DropdownMenu>
+    </Dropdown>
+  </div>
+  <MessageHeader>
+    Test event
+  </MessageHeader>
+  <MessageContent />
+</Message>
+`;
+
 exports[`<EventMessage /> with test event should match snapshot 1`] = `
 <Message
   negative={true}

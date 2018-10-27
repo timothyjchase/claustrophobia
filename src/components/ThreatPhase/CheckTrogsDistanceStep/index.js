@@ -15,6 +15,7 @@ class CheckTrogsDistanceStep extends Component {
     return (
       <div>
         <Checkbox
+          id="trogsFar"
           label="Any Troglogytes 2 or more tiles away from the closest human?"
           onChange={() => this.setState({ trogsFar: !trogsFar })}
           checked={trogsFar}
@@ -22,6 +23,7 @@ class CheckTrogsDistanceStep extends Component {
         <br />
         <br />
         <Checkbox
+          id="trogsClose"
           label="Any Troglogytes adjacent to or on the same tile as a human?"
           onChange={() => this.setState({ trogsClose: !trogsClose })}
           checked={trogsClose}
