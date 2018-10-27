@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThreatPhase /> with step = CHECK_DEMON_PLACEMENT should match snapshot 1`] = `
+<CheckDemonPlacementStep
+  completeThreatDemonPlacementStep={[MockFunction]}
+/>
+`;
+
+exports[`<ThreatPhase /> with step = CHECK_TROGS_DISTANCE should match snapshot 1`] = `
+<CheckTrogsDistanceStep
+  completeThreatTrogsDistanceStep={[MockFunction]}
+/>
+`;
+
+exports[`<ThreatPhase /> with step = CHECK_TROGS_PLACEMENT should match snapshot 1`] = `
+<CheckTrogsPlacementStep
+  completeThreatTrogsPlacementStep={[MockFunction]}
+/>
+`;
+
+exports[`<ThreatPhase /> with step = SPAWN_DEMON should match snapshot 1`] = `
+<SpawnDemonStep
+  completeThreatSpawnDemonStep={[MockFunction]}
+  demonName="Demon"
+  legalPlacement={true}
+  scenario={Object {}}
+/>
+`;
+
+exports[`<ThreatPhase /> with step = SPAWN_TROGS should match snapshot 1`] = `
+<SpawnTrogsStep
+  completeThreatSpawnTrogsStep={[MockFunction]}
+  legalPlacement={true}
+  scenario={Object {}}
+  threatDice={6}
+/>
+`;
+
+exports[`<ThreatPhase /> with step = THREAT_EVENT should match snapshot 1`] = `
+<ThreatEventStep
+  completeThreatEventStep={[MockFunction]}
+/>
+`;

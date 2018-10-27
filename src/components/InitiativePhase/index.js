@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Button } from 'semantic-ui-react'
 
 const InitiativePhase = ({
-  currentState,
+  oilForYourLamp,
   useAuraOfBlessing,
   useOilForYourLamp,
   completeInitiativePhase,
@@ -13,10 +13,10 @@ const InitiativePhase = ({
     <Button.Group vertical fluid>
       <Button
         icon="heart"
-        content="Aura of Blessing (-2 Threat Die)"
+        content="Aura of Blessing (-2 Threat)"
         onClick={useAuraOfBlessing}
       />
-      {!currentState.oilForYourLamp && (
+      {!oilForYourLamp && (
         <Button
           icon="tint"
           content="Oil For Your Lamp (No Events)"
@@ -35,7 +35,7 @@ const InitiativePhase = ({
 )
 
 InitiativePhase.propTypes = {
-  currentState: PropTypes.object.isRequired,
+  oilForYourLamp: PropTypes.bool.isRequired,
   useAuraOfBlessing: PropTypes.func.isRequired,
   useOilForYourLamp: PropTypes.func.isRequired,
   completeInitiativePhase: PropTypes.func.isRequired,

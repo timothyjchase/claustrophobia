@@ -1,83 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import renderHTML from 'react-render-html'
-import {
-  Button,
-  Grid,
-  Label,
-  List,
-  Popup,
-  Rating,
-  Segment,
-} from 'semantic-ui-react'
+import { Grid, List, Segment } from 'semantic-ui-react'
 import DieImage from '../DieImage'
-import { DEMON_WARRIORS, SCENARIOS } from '../../config'
+import DemonWarriorItem from './DemonWarriorItem'
 
-const DemonWarriorItem = ({ numberInPlay, onRemove, warrior }) => {
-  if (numberInPlay)
-    return (
-      <List.Item>
-        <List.Content>
-          <Button
-            icon="remove"
-            floated="right"
-            size="tiny"
-            onClick={onRemove}
-            compact
-            basic
-          />
-          <List.Header as="a">
-            <Label circular horizontal>
-              {numberInPlay}
-            </Label>
-            <Popup
-              inverted
-              trigger={
-                <span>{`${warrior.name}${numberInPlay > 1 ? 's' : ''}`}</span>
-              }
-            >
-              <div>
-                <Label content={`${warrior.movement} MVT`} />
-                {' '}
-                <Label content={`${warrior.combat} CBT`} />
-                {' '}
-                <Label content={`${warrior.defense} DEF`} />
-                {!!warrior.rules && <div>{renderHTML(warrior.rules)}</div>}
-              </div>
-            </Popup>
-            {warrior.health > 1 && (
-              <div style={{ paddingLeft: '30px' }}>
-                <Rating
-                  icon="heart"
-                  defaultRating={0}
-                  maxRating={warrior.health}
-                  size="tiny"
-                />
-              </div>
-            )}
-          </List.Header>
-        </List.Content>
-      </List.Item>
-    )
-  return null
-}
-
-DemonWarriorItem.propTypes = {
-  numberInPlay: PropTypes.number.isRequired,
-  onRemove: PropTypes.func.isRequired,
-  warrior: PropTypes.object.isRequired,
-}
-
-const GameSummary = ({
-  currentState,
-  removeDemon,
-  removeToughTrog,
-  removeTrog,
-}) => {
-  const demonWarriors =
-    currentState.demonsInPlay +
-    currentState.toughTrogsInPlay +
-    currentState.trogsInPlay
+const GameSummary = ({ turn, demonDice, threatDice, warriors }) => {
+  const demonWarriorCount = warriors.reduce(
+    (result, warrior) => result + warrior.numberInPlay,
+    0,
+  )
   return (
     <Segment style={{ padding: '10px 10px 10px 10px' }}>
       <Grid stackable={false}>
@@ -86,7 +17,7 @@ const GameSummary = ({
             <div>
               <strong>
                 Turn:
-                {currentState.turn}
+                {turn}
               </strong>
               <br />
               <DieImage
@@ -97,7 +28,7 @@ const GameSummary = ({
                   margin: '5px 4px 0px 0px',
                 }}
                 type="DEMON"
-                value={currentState.demonDice}
+                value={demonDice}
               />
               <DieImage
                 style={{
@@ -107,7 +38,7 @@ const GameSummary = ({
                   margin: '5px 0px 0px 4px',
                 }}
                 type="THREAT"
-                value={currentState.threatDice}
+                value={threatDice}
               />
             </div>
           </Grid.Column>
@@ -116,30 +47,14 @@ const GameSummary = ({
             verticalAlign="middle"
             style={{ paddingLeft: '0px' }}
           >
-            {!!demonWarriors && (
+            {!!demonWarriorCount && (
               <List>
-                <DemonWarriorItem
-                  numberInPlay={currentState.demonsInPlay}
-                  onRemove={removeDemon}
-                  warrior={
-                    DEMON_WARRIORS[
-                      (SCENARIOS[currentState.scenario] || {}).demon
-                    ]
-                  }
-                />
-                <DemonWarriorItem
-                  numberInPlay={currentState.toughTrogsInPlay}
-                  onRemove={removeToughTrog}
-                  warrior={DEMON_WARRIORS.TOUGH_TROGLODYTE}
-                />
-                <DemonWarriorItem
-                  numberInPlay={currentState.trogsInPlay}
-                  onRemove={removeTrog}
-                  warrior={DEMON_WARRIORS.TROGLODYTE}
-                />
+                {warriors.map((warrior, index) => (
+                  <DemonWarriorItem key={index} warrior={warrior} />
+                ))}
               </List>
             )}
-            {!demonWarriors && <span>No Demon warriors in play</span>}
+            {!demonWarriorCount && <span>No Demon warriors in play</span>}
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -148,10 +63,10 @@ const GameSummary = ({
 }
 
 GameSummary.propTypes = {
-  currentState: PropTypes.object.isRequired,
-  removeDemon: PropTypes.func.isRequired,
-  removeToughTrog: PropTypes.func.isRequired,
-  removeTrog: PropTypes.func.isRequired,
+  turn: PropTypes.number.isRequired,
+  demonDice: PropTypes.number.isRequired,
+  threatDice: PropTypes.number.isRequired,
+  warriors: PropTypes.array.isRequired,
 }
 
 export default GameSummary

@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DieImage /> with type = DEMON, value = 0 should match snapshot 1`] = `
+<Popup
+  inverted={true}
+  keepInViewPort={true}
+  on="hover"
+  position="top left"
+  trigger={
+    <img
+      alt={0}
+      src="data:image/png;base64,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
+f2M+B/0LlfKcJGHxgnkAAAAASUVORK5CYII="
+    />
+  }
+>
+  <span>
+    <strong>
+      Demon Die: 
+    </strong>
+    During the Threat phase, if a d6 roll exeeds this value, a Demon will be added. Otherwise, this value is reduced by 1.
+  </span>
+</Popup>
+`;
+
+exports[`<DieImage /> with type = DEMON, value = 1 should match snapshot 1`] = `
+<Popup
+  inverted={true}
+  keepInViewPort={true}
+  on="hover"
+  position="top left"
+  trigger={
+    <img
+      alt={1}
+      src="data:image/png;base64,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
+f2M+B/0LlfKcJGHxgnkAAAAASUVORK5CYII="
+    />
+  }
+>
+  <span>
+    <strong>
+      Demon Die: 
+    </strong>
+    During the Threat phase, if a d6 roll exeeds this value, a Demon will be added. Otherwise, this value is reduced by 1.
+  </span>
+</Popup>
+`;
+
+exports[`<DieImage /> with type = DEMON, value = 7 should match snapshot 1`] = `
+<Popup
+  inverted={true}
+  keepInViewPort={true}
+  on="hover"
+  position="top left"
+  trigger={
+    <img
+      alt={7}
+      src="data:image/png;base64,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
+M6Av+xMAAAAASUVORK5CYII="
+    />
+  }
+>
+  <span>
+    <strong>
+      Demon Die: 
+    </strong>
+    During the Threat phase, if a d6 roll exeeds this value, a Demon will be added. Otherwise, this value is reduced by 1.
+  </span>
+</Popup>
+`;
+
+exports[`<DieImage /> with type = THREAT, value = 1 should match snapshot 1`] = `
+<Popup
+  inverted={true}
+  keepInViewPort={true}
+  on="hover"
+  position="top left"
+  trigger={
+    <img
+      alt={1}
+      src="data:image/png;base64,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"
+    />
+  }
+>
+  <span>
+    <strong>
+      Threat Die: 
+    </strong>
+    If no Demon is added during the Threat phase, and there are fewer Troglodytes in play than this value, then Troglodytes will be added.
+  </span>
+</Popup>
+`;

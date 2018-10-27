@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ViewDocumentPage /> with document should match snapshot 1`] = `
+exports[`<ThreatEventStep /> with basic props should match snapshot 1`] = `
 <div>
   <ButtonGroup
     fluid={true}

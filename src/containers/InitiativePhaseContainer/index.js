@@ -17,14 +17,17 @@ const InitiativePhaseContainer = ({
   useAuraOfBlessing,
   useOilForYourLamp,
   completeInitiativePhase,
-}) => (
-  <InitiativePhase
-    currentState={currentState}
-    useAuraOfBlessing={useAuraOfBlessing}
-    useOilForYourLamp={useOilForYourLamp}
-    completeInitiativePhase={completeInitiativePhase}
-  />
-)
+}) => {
+  const { oilForYourLamp } = currentState
+  return (
+    <InitiativePhase
+      oilForYourLamp={oilForYourLamp}
+      useAuraOfBlessing={useAuraOfBlessing}
+      useOilForYourLamp={useOilForYourLamp}
+      completeInitiativePhase={completeInitiativePhase}
+    />
+  )
+}
 
 InitiativePhaseContainer.propTypes = {
   currentState: PropTypes.object.isRequired,

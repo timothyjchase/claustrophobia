@@ -19,8 +19,9 @@ const STEPS_CONFIG = {
 const ThreatPhase = ({
   scenario,
   threatStep,
-  legalPlacement,
+  demonName,
   threatDice,
+  legalPlacement,
   completeThreatDemonPlacementStep,
   completeThreatTrogsDistanceStep,
   completeThreatTrogsPlacementStep,
@@ -37,12 +38,17 @@ const ThreatPhase = ({
   } else if (threatStep === 'CHECK_TROGS_PLACEMENT') {
     stepProps = { completeThreatTrogsPlacementStep }
   } else if (threatStep === 'SPAWN_DEMON') {
-    stepProps = { scenario, legalPlacement, completeThreatSpawnDemonStep }
+    stepProps = {
+      scenario,
+      demonName,
+      legalPlacement,
+      completeThreatSpawnDemonStep,
+    }
   } else if (threatStep === 'SPAWN_TROGS') {
     stepProps = {
       scenario,
-      legalPlacement,
       threatDice,
+      legalPlacement,
       completeThreatSpawnTrogsStep,
     }
   } else if (threatStep === 'THREAT_EVENT') {
@@ -51,11 +57,16 @@ const ThreatPhase = ({
   return <StepCompoonent {...stepProps} />
 }
 
+ThreatPhase.defaultProps = {
+  demonName: 'Demon',
+}
+
 ThreatPhase.propTypes = {
-  scenario: PropTypes.string.isRequired,
+  scenario: PropTypes.object.isRequired,
   threatStep: PropTypes.string.isRequired,
-  legalPlacement: PropTypes.bool.isRequired,
+  demonName: PropTypes.string,
   threatDice: PropTypes.number.isRequired,
+  legalPlacement: PropTypes.bool.isRequired,
   completeThreatDemonPlacementStep: PropTypes.func.isRequired,
   completeThreatTrogsDistanceStep: PropTypes.func.isRequired,
   completeThreatTrogsPlacementStep: PropTypes.func.isRequired,

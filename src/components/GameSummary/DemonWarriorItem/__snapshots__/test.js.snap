@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemonWarriorItem /> with no warrior should match snapshot 1`] = `""`;
+
+exports[`<DemonWarriorItem /> with warrior, number in play=1, health = 5, rules should match snapshot 1`] = `
+<ListItem>
+  <ListContent>
+    <Button
+      as="button"
+      basic={true}
+      compact={true}
+      floated="right"
+      icon="remove"
+      onClick={[MockFunction]}
+      role="button"
+      size="tiny"
+    />
+    <ListHeader
+      as="a"
+    >
+      <Label
+        circular={true}
+        horizontal={true}
+      >
+        1
+      </Label>
+      <Popup
+        inverted={true}
+        keepInViewPort={true}
+        on="hover"
+        position="top left"
+        trigger={
+          <span>
+            Test warrior
+          </span>
+        }
+      >
+        <div>
+          <Label
+            content="1 MVT"
+          />
+           
+          <Label
+            content="2 CBT"
+          />
+           
+          <Label
+            content="4 DEF"
+          />
+          <div>
+            custom
+          </div>
+        </div>
+      </Popup>
+      <div
+        style={
+          Object {
+            "paddingLeft": "30px",
+          }
+        }
+      >
+        <Rating
+          clearable="auto"
+          defaultRating={0}
+          icon="heart"
+          maxRating={5}
+          size="tiny"
+        />
+      </div>
+    </ListHeader>
+  </ListContent>
+</ListItem>
+`;
+
+exports[`<DemonWarriorItem /> with warrior, number in play=2, health = 1, no rules should match snapshot 1`] = `
+<ListItem>
+  <ListContent>
+    <Button
+      as="button"
+      basic={true}
+      compact={true}
+      floated="right"
+      icon="remove"
+      onClick={[MockFunction]}
+      role="button"
+      size="tiny"
+    />
+    <ListHeader
+      as="a"
+    >
+      <Label
+        circular={true}
+        horizontal={true}
+      >
+        2
+      </Label>
+      <Popup
+        inverted={true}
+        keepInViewPort={true}
+        on="hover"
+        position="top left"
+        trigger={
+          <span>
+            Test warriors
+          </span>
+        }
+      >
+        <div>
+          <Label
+            content="1 MVT"
+          />
+           
+          <Label
+            content="2 CBT"
+          />
+           
+          <Label
+            content="4 DEF"
+          />
+        </div>
+      </Popup>
+    </ListHeader>
+  </ListContent>
+</ListItem>
+`;

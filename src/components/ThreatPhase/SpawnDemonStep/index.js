@@ -2,16 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import renderHTML from 'react-render-html'
 import { Button, Message } from 'semantic-ui-react'
-import { DEMON_WARRIORS, SCENARIOS } from '../../../config'
 
 const SpawnDemonStep = ({
   scenario,
+  demonName,
   legalPlacement,
   completeThreatSpawnDemonStep,
 }) => {
-  const demon = DEMON_WARRIORS[(SCENARIOS[scenario] || {}).demon] || {}
   const spawnLocation =
-    SCENARIOS[scenario].demonSpawnLocation ||
+    scenario.demonSpawnLocation ||
     '<li>the <strong>largest group</strong> of Human warriors</li>'
   return (
     <div>
@@ -24,8 +23,8 @@ const SpawnDemonStep = ({
         </Message>
       )}
       <p>
-        Add up the
-        <strong>{` ${demon.name} `}</strong>
+        Add the
+        <strong>{` ${demonName} `}</strong>
         to the tile closest to:
       </p>
       <ul>{renderHTML(spawnLocation)}</ul>
@@ -46,8 +45,13 @@ const SpawnDemonStep = ({
   )
 }
 
+SpawnDemonStep.defaultProps = {
+  demonName: 'Demon',
+}
+
 SpawnDemonStep.propTypes = {
-  scenario: PropTypes.string.isRequired,
+  scenario: PropTypes.object.isRequired,
+  demonName: PropTypes.string,
   legalPlacement: PropTypes.bool.isRequired,
   completeThreatSpawnDemonStep: PropTypes.func.isRequired,
 }

@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HumanActionPhase /> with scenario = HIT_THEM_WHERE_IT_HURTS, demonsInPlay = 0, threatDice = 2 should match snapshot 1`] = `
+<div>
+  <p>
+    Record removed warriors and the following actions below:
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Demonic Mechanism tile (+2 Threat)"
+      icon="cog"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Pentacle Room tile (+1 Master of Souls)"
+      icon="star outline"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<HumanActionPhase /> with scenario = HIT_THEM_WHERE_IT_HURTS, demonsInPlay = 1, threatDice = 3 should match snapshot 1`] = `
+<div>
+  <p>
+    Record removed warriors and the following actions below:
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Demonic Mechanism tile (+2 Threat)"
+      icon="cog"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Any other tile (+2 Troglodytes)"
+      icon="square plus outline"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<HumanActionPhase /> with scenario = THE_POSSESSED, oilForYourLamp = false should match snapshot 1`] = `
+<div>
+  <p>
+    Record removed warriors and the following actions below:
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Demonic Mechanism tile (+2 Threat)"
+      icon="cog"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Stash tile (+1 Possessed One)"
+      icon="box"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<HumanActionPhase /> with scenario = THE_POSSESSED, oilForYourLamp = true should match snapshot 1`] = `
+<div>
+  <p>
+    Record removed warriors and the following actions below:
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Stash tile (+1 Possessed One)"
+      icon="box"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<HumanActionPhase /> with scenario = THE_RITUAL, oilForYourLamp = false should match snapshot 1`] = `
+<div>
+  <p>
+    Record removed warriors and the following actions below:
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

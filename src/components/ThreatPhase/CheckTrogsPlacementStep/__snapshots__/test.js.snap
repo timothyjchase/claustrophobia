@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckTrogsPlacementStep /> with basic props should match snapshot 1`] = `
+<div>
+  <Checkbox
+    checked={false}
+    label="At least 1 legal placement for Troglodytes within 4 tiles of a Human warrior?"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <br />
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next"
+      icon="play"
+      onClick={[Function]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

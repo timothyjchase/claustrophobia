@@ -10,6 +10,7 @@ import {
   completeThreatEventStep,
 } from '../../actions'
 import ThreatPhase from '../../components/ThreatPhase'
+import { DEMON_WARRIORS, SCENARIOS } from '../../config'
 
 const mapStateToProps = state => ({
   currentState: state.current,
@@ -24,14 +25,17 @@ const ThreatPhaseContainer = ({
   completeThreatSpawnTrogsStep,
   completeThreatEventStep,
 }) => {
-  const { scenario, threatStep, legalPlacement, threatDice } = currentState
+  const { scenarioKey, threatStep, legalPlacement, threatDice } = currentState
+  const scenario = SCENARIOS[scenarioKey] || {}
+  const demonName = (DEMON_WARRIORS[scenario.demon] || {}).name
 
   return (
     <ThreatPhase
       scenario={scenario}
       threatStep={threatStep}
-      legalPlacement={legalPlacement}
+      demonName={demonName}
       threatDice={threatDice}
+      legalPlacement={legalPlacement}
       completeThreatDemonPlacementStep={completeThreatDemonPlacementStep}
       completeThreatTrogsDistanceStep={completeThreatTrogsDistanceStep}
       completeThreatTrogsPlacementStep={completeThreatTrogsPlacementStep}

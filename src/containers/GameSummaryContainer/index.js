@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { removeDemon, removeToughTrog, removeTrog } from '../../actions'
 import GameSummary from '../../components/GameSummary'
+import { DEMON_WARRIORS, SCENARIOS } from '../../config'
 
 const mapStateToProps = state => ({
   currentState: state.current,
@@ -13,14 +14,35 @@ const GameSummaryContainer = ({
   removeDemon,
   removeToughTrog,
   removeTrog,
-}) => (
-  <GameSummary
-    currentState={currentState}
-    removeDemon={removeDemon}
-    removeToughTrog={removeToughTrog}
-    removeTrog={removeTrog}
-  />
-)
+}) => {
+  const demon =
+    DEMON_WARRIORS[(SCENARIOS[currentState.scenarioKey] || {}).demon] || {}
+  const warriors = [
+    {
+      ...demon,
+      numberInPlay: currentState.demonsInPlay,
+      onRemove: removeDemon,
+    },
+    {
+      ...DEMON_WARRIORS.TOUGH_TROGLODYTE,
+      numberInPlay: currentState.toughTrogsInPlay,
+      onRemove: removeToughTrog,
+    },
+    {
+      ...DEMON_WARRIORS.TROGLODYTE,
+      numberInPlay: currentState.trogsInPlay,
+      onRemove: removeTrog,
+    },
+  ]
+  return (
+    <GameSummary
+      turn={currentState.turn}
+      demonDice={currentState.demonDice}
+      threatDice={currentState.threatDice}
+      warriors={warriors}
+    />
+  )
+}
 
 GameSummaryContainer.propTypes = {
   currentState: PropTypes.object.isRequired,

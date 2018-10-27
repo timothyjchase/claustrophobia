@@ -130,7 +130,7 @@ const EVENTS = {
   CAVE_IN: {
     name: 'Cave-In',
     getDescription: state => {
-      if (state.scenario === 'THE_SURVIVORS') {
+      if (state.scenarioKey === 'THE_SURVIVORS') {
         return `Place a cave-in token on the tile opening with Fresh Air.
           If the Exit tile is already in play, place the token on an opening of
           the Exit tile that is connected to another tile.<br><br>
@@ -191,7 +191,7 @@ const EVENTS = {
   TERROR: {
     name: 'Terror',
     getDescription: state => {
-      if (state.scenario === 'THE_SURVIVORS') {
+      if (state.scenarioKey === 'THE_SURVIVORS') {
         return `Pick a Human warrior closest to the tile with Fresh Air (or
           closest to the Exit tile if it has already been placed) and move him
           to an adjacent tile away from the Fresh Air (or Exit tile),
@@ -212,7 +212,7 @@ const EVENTS = {
   TOUGH_TROGLODYTE: {
     name: 'Tough Troglodyte',
     getDescription: state => {
-      if (state.scenario === 'THE_SURVIVORS') {
+      if (state.scenarioKey === 'THE_SURVIVORS') {
         return `Place a Tough Troglodyte on the tile with the Fresh Air (or
           closest to the Exit tile if it has already been placed).<br><br>
           This Troglodyte must be considered individually during combat
@@ -226,7 +226,7 @@ const EVENTS = {
         to a regular Troglodyte miniature.`
     },
     phase: PHASES.THREAT,
-    checkRelevent: state => state.scenario !== SCENARIOS.THE_RITUAL,
+    checkRelevent: state => state.scenarioKey !== SCENARIOS.THE_RITUAL,
     getResult: state => ({
       toughTrogsInPlay: state.toughTrogsInPlay + 1,
       toughTrogsAdded: state.toughTrogsAdded + 1,

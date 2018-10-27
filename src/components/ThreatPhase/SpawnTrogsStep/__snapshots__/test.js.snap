@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpawnTrogsStep /> with location, legal placement, threat 6 should match snapshot 1`] = `
+<div>
+  <p>
+    Add up to
+    <strong>
+       6 
+    </strong>
+    Troglogytes to tiles closest to:
+  </p>
+  <ul>
+    custom location
+  </ul>
+  <p>
+    <i>
+      Reminder: Human warriors block tiles with unexplored openings
+    </i>
+  </p>
+  <Input
+    fluid={true}
+    label="Troglogytes added"
+    max={6}
+    min={0}
+    onChange={[Function]}
+    placeholder="0"
+    type="number"
+    value={6}
+  />
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next"
+      disabled={false}
+      icon="play"
+      onClick={[Function]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<SpawnTrogsStep /> with no location, no legal placement, threat 2 should match snapshot 1`] = `
+<div>
+  <Message
+    negative={true}
+  >
+    <MessageHeader>
+      A Taste for Blood
+    </MessageHeader>
+    <MessageContent>
+      Human warriors cannot prevent the appearance of Troglodytes.
+    </MessageContent>
+  </Message>
+  <p>
+    Add up to
+    <strong>
+       2 
+    </strong>
+    Troglogytes to tiles closest to:
+  </p>
+  <ul>
+    <li
+      key="0"
+    >
+      the 
+      <strong
+        key="1"
+      >
+        largest group
+      </strong>
+       of Human warriors
+    </li>
+  </ul>
+  <Input
+    fluid={true}
+    label="Troglogytes added"
+    max={6}
+    min={0}
+    onChange={[Function]}
+    placeholder="0"
+    type="number"
+    value={2}
+  />
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next"
+      disabled={false}
+      icon="play"
+      onClick={[Function]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SpawnDemonStep /> with location, legal placement should match snapshot 1`] = `
+<div>
+  <p>
+    Add the
+    <strong>
+       Demon 
+    </strong>
+    to the tile closest to:
+  </p>
+  <ul>
+    custom location
+  </ul>
+  <p>
+    <i>
+      Reminder: Human warriors block tiles with unexplored openings
+    </i>
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<SpawnDemonStep /> with no location, no legal placement should match snapshot 1`] = `
+<div>
+  <Message
+    negative={true}
+  >
+    <MessageHeader>
+      A Taste for Blood
+    </MessageHeader>
+    <MessageContent>
+      Human warriors cannot prevent the appearance of Demons.
+    </MessageContent>
+  </Message>
+  <p>
+    Add the
+    <strong>
+       Demon 
+    </strong>
+    to the tile closest to:
+  </p>
+  <ul>
+    <li
+      key="0"
+    >
+      the 
+      <strong
+        key="1"
+      >
+        largest group
+      </strong>
+       of Human warriors
+    </li>
+  </ul>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

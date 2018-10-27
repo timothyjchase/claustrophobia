@@ -21,7 +21,10 @@ const HumanActionPhaseContainer = ({
   completeHumanActionPhase,
 }) => (
   <HumanActionPhase
-    currentState={currentState}
+    scenarioKey={currentState.scenarioKey}
+    oilForYourLamp={currentState.oilForYourLamp}
+    demonsInPlay={currentState.demonsInPlay}
+    threatDice={currentState.threatDice}
     addDemon={addDemon}
     placeDemonicMechanismTile={placeDemonicMechanismTile}
     placeTile={placeTile}

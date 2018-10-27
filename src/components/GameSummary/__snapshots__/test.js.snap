@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameSummary /> with a variety of warriors should match snapshot 1`] = `
+<Segment
+  style={
+    Object {
+      "padding": "10px 10px 10px 10px",
+    }
+  }
+>
+  <Grid
+    stackable={false}
+  >
+    <GridRow
+      stretched={true}
+    >
+      <GridColumn
+        verticalAlign="middle"
+        width={5}
+      >
+        <div>
+          <strong>
+            Turn:
+            1
+          </strong>
+          <br />
+          <DieImage
+            style={
+              Object {
+                "display": "inline",
+                "height": "30px",
+                "margin": "5px 4px 0px 0px",
+                "width": "30px",
+              }
+            }
+            type="DEMON"
+            value={2}
+          />
+          <DieImage
+            style={
+              Object {
+                "display": "inline",
+                "height": "30px",
+                "margin": "5px 0px 0px 4px",
+                "width": "30px",
+              }
+            }
+            type="THREAT"
+            value={3}
+          />
+        </div>
+      </GridColumn>
+      <GridColumn
+        style={
+          Object {
+            "paddingLeft": "0px",
+          }
+        }
+        verticalAlign="middle"
+        width={11}
+      >
+        <List>
+          <DemonWarriorItem
+            key="0"
+            warrior={
+              Object {
+                "numberInPlay": 0,
+              }
+            }
+          />
+          <DemonWarriorItem
+            key="1"
+            warrior={
+              Object {
+                "numberInPlay": 1,
+              }
+            }
+          />
+          <DemonWarriorItem
+            key="2"
+            warrior={
+              Object {
+                "numberInPlay": 2,
+              }
+            }
+          />
+        </List>
+      </GridColumn>
+    </GridRow>
+  </Grid>
+</Segment>
+`;
+
+exports[`<GameSummary /> with no warriors should match snapshot 1`] = `
+<Segment
+  style={
+    Object {
+      "padding": "10px 10px 10px 10px",
+    }
+  }
+>
+  <Grid
+    stackable={false}
+  >
+    <GridRow
+      stretched={true}
+    >
+      <GridColumn
+        verticalAlign="middle"
+        width={5}
+      >
+        <div>
+          <strong>
+            Turn:
+            1
+          </strong>
+          <br />
+          <DieImage
+            style={
+              Object {
+                "display": "inline",
+                "height": "30px",
+                "margin": "5px 4px 0px 0px",
+                "width": "30px",
+              }
+            }
+            type="DEMON"
+            value={2}
+          />
+          <DieImage
+            style={
+              Object {
+                "display": "inline",
+                "height": "30px",
+                "margin": "5px 0px 0px 4px",
+                "width": "30px",
+              }
+            }
+            type="THREAT"
+            value={3}
+          />
+        </div>
+      </GridColumn>
+      <GridColumn
+        style={
+          Object {
+            "paddingLeft": "0px",
+          }
+        }
+        verticalAlign="middle"
+        width={11}
+      >
+        <span>
+          No Demon warriors in play
+        </span>
+      </GridColumn>
+    </GridRow>
+  </Grid>
+</Segment>
+`;

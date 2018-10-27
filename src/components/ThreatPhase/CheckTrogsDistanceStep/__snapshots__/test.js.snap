@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckTrogsDistanceStep /> with basic props should match snapshot 1`] = `
+<div>
+  <Checkbox
+    checked={false}
+    label="Any Troglogytes 2 or more tiles away from the closest human?"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <br />
+  <br />
+  <Checkbox
+    checked={false}
+    label="Any Troglogytes adjacent to or on the same tile as a human?"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <br />
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[Function]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

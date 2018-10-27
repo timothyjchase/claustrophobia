@@ -7,9 +7,14 @@ import Welcome from '../Welcome'
 import PhaseHeader from '../PhaseHeader'
 import PhaseBody from '../PhaseBody'
 import MainMenu from '../MainMenu'
-import { SCENARIOS } from '../../config'
 
-const MainApp = ({ currentState, startGame, resetGame, undoLastChange }) => (
+const MainApp = ({
+  currentState,
+  scenarioName,
+  startGame,
+  resetGame,
+  undoLastChange,
+}) => (
   <Container>
     <div
       style={{
@@ -33,10 +38,11 @@ const MainApp = ({ currentState, startGame, resetGame, undoLastChange }) => (
           width: '352px',
         }}
         currentState={currentState}
+        scenarioName={scenarioName}
         resetGame={resetGame}
         undoLastChange={undoLastChange}
       />
-      {!!currentState.scenario && (
+      {!!scenarioName && (
         <div
           style={{
             position: 'absolute',
@@ -51,14 +57,14 @@ const MainApp = ({ currentState, startGame, resetGame, undoLastChange }) => (
               left: '-50%',
             }}
           >
-            <strong>{SCENARIOS[currentState.scenario].name}</strong>
+            <strong>{scenarioName}</strong>
           </div>
         </div>
       )}
 
       <div style={{ padding: '5px 10px 10px 10px' }}>
-        {!currentState.scenario && <Welcome startGame={startGame} />}
-        {!!currentState.scenario && (
+        {!scenarioName && <Welcome startGame={startGame} />}
+        {!!scenarioName && (
           <div>
             <PhaseHeader phase={currentState.phase} />
             <EventMessageContainer />
@@ -73,6 +79,7 @@ const MainApp = ({ currentState, startGame, resetGame, undoLastChange }) => (
 
 MainApp.propTypes = {
   currentState: PropTypes.object.isRequired,
+  scenarioName: PropTypes.string, // eslint-disable-line react/require-default-props
   startGame: PropTypes.func.isRequired,
   resetGame: PropTypes.func.isRequired,
   undoLastChange: PropTypes.func.isRequired,

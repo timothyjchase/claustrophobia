@@ -5,7 +5,13 @@ import RulesSummaryButton from '../RulesSummaryButton'
 import DemonAISummaryButton from '../DemonAISummaryButton'
 import GameResultButton from '../GameResultButton'
 
-const MainMenu = ({ currentState, resetGame, undoLastChange, ...divProps }) => (
+const MainMenu = ({
+  currentState,
+  scenarioName,
+  resetGame,
+  undoLastChange,
+  ...divProps
+}) => (
   <div {...divProps}>
     <div style={{ float: 'right' }}>
       <Dropdown icon="bars" direction="left" style={{ color: 'white' }}>
@@ -21,6 +27,7 @@ const MainMenu = ({ currentState, resetGame, undoLastChange, ...divProps }) => (
             text="Victory"
             as={Dropdown.Item}
             currentState={currentState}
+            scenarioName={scenarioName}
             result="Victory"
           />
           <GameResultButton
@@ -28,6 +35,7 @@ const MainMenu = ({ currentState, resetGame, undoLastChange, ...divProps }) => (
             text="Defeat"
             as={Dropdown.Item}
             currentState={currentState}
+            scenarioName={scenarioName}
             result="Defeat"
           />
         </Dropdown.Menu>
@@ -38,6 +46,7 @@ const MainMenu = ({ currentState, resetGame, undoLastChange, ...divProps }) => (
 
 MainMenu.propTypes = {
   currentState: PropTypes.object.isRequired,
+  scenarioName: PropTypes.string, // eslint-disable-line react/require-default-props
   resetGame: PropTypes.func.isRequired,
   undoLastChange: PropTypes.func.isRequired,
 }

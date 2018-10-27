@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainApp /> with no scenarioName should match snapshot 1`] = `
+<Container>
+  <div
+    style={
+      Object {
+        "background": "white",
+        "margin": "0 auto",
+        "marginTop": "10px",
+        "maxWidth": "352px",
+      }
+    }
+  >
+    <img
+      alt="Claustrophobia"
+      src="images/title.png"
+      style={
+        Object {
+          "height": "128px",
+          "width": "352px",
+        }
+      }
+    />
+    <MainMenu
+      currentState={
+        Object {
+          "phase": "test phase",
+        }
+      }
+      resetGame={[MockFunction]}
+      style={
+        Object {
+          "position": "absolute",
+          "top": "110px",
+          "width": "352px",
+          "zIndex": "1000",
+        }
+      }
+      undoLastChange={[MockFunction]}
+    />
+    <div
+      style={
+        Object {
+          "padding": "5px 10px 10px 10px",
+        }
+      }
+    >
+      <Welcome
+        startGame={[MockFunction]}
+      />
+    </div>
+  </div>
+</Container>
+`;
+
+exports[`<MainApp /> with scenarioName should match snapshot 1`] = `
+<Container>
+  <div
+    style={
+      Object {
+        "background": "white",
+        "margin": "0 auto",
+        "marginTop": "10px",
+        "maxWidth": "352px",
+      }
+    }
+  >
+    <img
+      alt="Claustrophobia"
+      src="images/title.png"
+      style={
+        Object {
+          "height": "128px",
+          "width": "352px",
+        }
+      }
+    />
+    <MainMenu
+      currentState={
+        Object {
+          "phase": "test phase",
+        }
+      }
+      resetGame={[MockFunction]}
+      scenarioName="Test scenario"
+      style={
+        Object {
+          "position": "absolute",
+          "top": "110px",
+          "width": "352px",
+          "zIndex": "1000",
+        }
+      }
+      undoLastChange={[MockFunction]}
+    />
+    <div
+      style={
+        Object {
+          "left": "50%",
+          "position": "absolute",
+          "top": "115px",
+          "zIndex": "1000",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "left": "-50%",
+            "position": "relative",
+          }
+        }
+      >
+        <strong>
+          Test scenario
+        </strong>
+      </div>
+    </div>
+    <div
+      style={
+        Object {
+          "padding": "5px 10px 10px 10px",
+        }
+      }
+    >
+      <div>
+        <PhaseHeader
+          phase="test phase"
+        />
+        <Connect(EventMessageContainer) />
+        <PhaseBody
+          phase="test phase"
+        />
+        <Connect(GameSummaryContainer) />
+      </div>
+    </div>
+  </div>
+</Container>
+`;

@@ -8,12 +8,17 @@ import { SCENARIOS } from '../../config'
 class Welcome extends Component {
   constructor(props) {
     super(props)
-    this.state = { scenario: undefined }
+    this.state = { scenarioKey: undefined }
   }
 
   render() {
     const { startGame } = this.props
-    const { scenario } = this.state
+    const { scenarioKey } = this.state
+    const options = Object.keys(SCENARIOS).map(key => ({
+      key,
+      value: key,
+      text: SCENARIOS[key].name,
+    }))
 
     return (
       <div>
@@ -46,12 +51,8 @@ class Welcome extends Component {
           placeholder="Pick a Scenario..."
           search
           selection
-          options={Object.keys(SCENARIOS).map(key => ({
-            key,
-            value: key,
-            text: SCENARIOS[key].name,
-          }))}
-          onChange={(event, { value }) => this.setState({ scenario: value })}
+          options={options}
+          onChange={(event, { value }) => this.setState({ scenarioKey: value })}
           fluid
         />
         <br />
@@ -59,9 +60,9 @@ class Welcome extends Component {
           <Button
             primary
             fluid
-            disabled={!scenario}
+            disabled={!scenarioKey}
             content="Start Game"
-            onClick={() => startGame(scenario)}
+            onClick={() => startGame(scenarioKey)}
           />
         </Button.Group>
         <br />

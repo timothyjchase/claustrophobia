@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import renderHTML from 'react-render-html'
 import { Button, Input, Message } from 'semantic-ui-react'
-import { SCENARIOS } from '../../../config'
 
 class SpawnTrogsStep extends Component {
   constructor(props) {
     super(props)
-    const maxTrogs = props.legalPlacement
-      ? props.threatDice
-      : Math.min(props.threatDice, 3)
+    const { legalPlacement, threatDice } = props
+    const maxTrogs = legalPlacement ? threatDice : Math.min(threatDice, 3)
     this.state = { trogsAdded: maxTrogs, maxTrogs }
   }
 
@@ -21,7 +19,7 @@ class SpawnTrogsStep extends Component {
     } = this.props
     const { trogsAdded, maxTrogs } = this.state
     const spawnLocation =
-      SCENARIOS[scenario].demonSpawnLocation ||
+      scenario.trogsSpawnLocation ||
       '<li>the <strong>largest group</strong> of Human warriors</li>'
 
     return (
@@ -73,7 +71,7 @@ class SpawnTrogsStep extends Component {
 }
 
 SpawnTrogsStep.propTypes = {
-  scenario: PropTypes.string.isRequired,
+  scenario: PropTypes.object.isRequired,
   legalPlacement: PropTypes.bool.isRequired,
   threatDice: PropTypes.number.isRequired,
   completeThreatSpawnTrogsStep: PropTypes.func.isRequired,

@@ -23,10 +23,10 @@ const getEventResult = (state, phase) => {
   return {}
 }
 
-const startGame = scenario => dispatch => {
+const startGame = scenarioKey => dispatch => {
   dispatch({
     type: CHANGE_GAME_STATE,
-    payload: { scenario, turn: 1, phase: PHASES.INITIATIVE },
+    payload: { scenarioKey, turn: 1, phase: PHASES.INITIATIVE },
   })
 }
 
@@ -65,7 +65,7 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
   }
   // Add to Threat Die for The Ritual scenario
   if (
-    state.scenario === 'THE_RITUAL' &&
+    state.scenarioKey === 'THE_RITUAL' &&
     state.demonsInPlay &&
     state.threatDice < 6
   ) {
@@ -74,7 +74,7 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
   // Check for adding a Demon
   if (
     !state.demonsInPlay &&
-    state.demonsAdded < SCENARIOS[state.scenario].demonLimit
+    state.demonsAdded < SCENARIOS[state.scenarioKey].demonLimit
   ) {
     if (state.threatRoll > state.demonDice) {
       payload.threatStep = THREAT_PHASE_STEPS.CHECK_DEMON_PLACEMENT
@@ -108,7 +108,7 @@ const getCompleteThreatPhase = state => {
     payload.trogsSupernaturalSpeed = true
     payload.threatDice -= 2
   }
-  if (state.scenario === 'THE_RITUAL' && state.demonsInPlay) {
+  if (state.scenarioKey === 'THE_RITUAL' && state.demonsInPlay) {
     payload.trogsSharpenedClaws = true
   } else if (payload.threatDice >= 1 && state.trogsClose) {
     payload.trogsSharpenedClaws = true
@@ -334,7 +334,10 @@ const placeDemonicMechanismTile = () => (dispatch, getState) => {
 
 const placeTile = () => (dispatch, getState) => {
   const state = getState().current
-  if (state.scenario === 'HIT_THEM_WHERE_IT_HURTS' && state.threatDice >= 3) {
+  if (
+    state.scenarioKey === 'HIT_THEM_WHERE_IT_HURTS' &&
+    state.threatDice >= 3
+  ) {
     dispatch({
       type: CHANGE_GAME_STATE,
       payload: {

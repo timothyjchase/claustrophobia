@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameOverButton /> with result = Defeat, scenario should match snapshot 1`] = `
+<Portal
+  closeOnDocumentClick={true}
+  closeOnEscape={true}
+  closeOnTriggerClickk={false}
+  eventPool="default"
+  onClose={[Function]}
+  onOpen={[Function]}
+  open={false}
+  openOnTriggerClick={true}
+  trigger={
+    <Button
+      as="button"
+      role="button"
+    />
+  }
+>
+  <Modal
+    centered={true}
+    closeOnDimmerClick={false}
+    closeOnDocumentClick={false}
+    dimmer={true}
+    eventPool="Modal"
+    open={true}
+  >
+    <ModalHeader>
+      <span
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Maybe next time...
+      </span>
+    </ModalHeader>
+    <ModalContent>
+      <div>
+        <p>
+          <strong>
+            Result: 
+          </strong>
+          Defeat
+        </p>
+        <p>
+          <strong>
+            Scenario: 
+          </strong>
+          Test scenario
+        </p>
+        <p>
+          <strong>
+            Turn: 
+          </strong>
+          1
+        </p>
+        <p>
+          <strong>
+            Demons: 
+          </strong>
+          2
+           / 
+          3
+        </p>
+        <p>
+          <strong>
+            Troglodytes: 
+          </strong>
+          4
+           / 
+          5
+        </p>
+        <p>
+          <strong>
+            Tough Troglodytes: 
+          </strong>
+          6
+           / 
+          7
+        </p>
+        <p>
+          <strong>
+            Events: 
+          </strong>
+          8
+        </p>
+      </div>
+    </ModalContent>
+    <ModalActions>
+      <Button
+        as="button"
+        content="Close"
+        onClick={[Function]}
+        role="button"
+      />
+    </ModalActions>
+  </Modal>
+</Portal>
+`;
+
+exports[`<GameOverButton /> with result = Victory, no scenario should match snapshot 1`] = `
+<Portal
+  closeOnDocumentClick={true}
+  closeOnEscape={true}
+  closeOnTriggerClickk={false}
+  eventPool="default"
+  onClose={[Function]}
+  onOpen={[Function]}
+  open={false}
+  openOnTriggerClick={true}
+  trigger={
+    <Button
+      as="button"
+      role="button"
+    />
+  }
+>
+  <Modal
+    centered={true}
+    closeOnDimmerClick={false}
+    closeOnDocumentClick={false}
+    dimmer={true}
+    eventPool="Modal"
+    open={true}
+  >
+    <ModalHeader>
+      <span
+        style={
+          Object {
+            "color": "blue",
+          }
+        }
+      >
+        Congratulations!
+      </span>
+    </ModalHeader>
+    <ModalContent>
+      <div>
+        <p>
+          <strong>
+            Result: 
+          </strong>
+          Victory
+        </p>
+        <p>
+          <strong>
+            Scenario: 
+          </strong>
+        </p>
+        <p>
+          <strong>
+            Turn: 
+          </strong>
+          1
+        </p>
+        <p>
+          <strong>
+            Demons: 
+          </strong>
+          2
+           / 
+          3
+        </p>
+        <p>
+          <strong>
+            Troglodytes: 
+          </strong>
+          4
+           / 
+          5
+        </p>
+        <p>
+          <strong>
+            Tough Troglodytes: 
+          </strong>
+          6
+           / 
+          7
+        </p>
+        <p>
+          <strong>
+            Events: 
+          </strong>
+          8
+        </p>
+      </div>
+    </ModalContent>
+    <ModalActions>
+      <Button
+        as="button"
+        content="Close"
+        onClick={[Function]}
+        role="button"
+      />
+    </ModalActions>
+  </Modal>
+</Portal>
+`;
+
+exports[`<GameOverButton /> with result = Victory, scenario should match snapshot 1`] = `
+<Portal
+  closeOnDocumentClick={true}
+  closeOnEscape={true}
+  closeOnTriggerClickk={false}
+  eventPool="default"
+  onClose={[Function]}
+  onOpen={[Function]}
+  open={false}
+  openOnTriggerClick={true}
+  trigger={
+    <Button
+      as="button"
+      role="button"
+    />
+  }
+>
+  <Modal
+    centered={true}
+    closeOnDimmerClick={false}
+    closeOnDocumentClick={false}
+    dimmer={true}
+    eventPool="Modal"
+    open={true}
+  >
+    <ModalHeader>
+      <span
+        style={
+          Object {
+            "color": "blue",
+          }
+        }
+      >
+        Congratulations!
+      </span>
+    </ModalHeader>
+    <ModalContent>
+      <div>
+        <p>
+          <strong>
+            Result: 
+          </strong>
+          Victory
+        </p>
+        <p>
+          <strong>
+            Scenario: 
+          </strong>
+          Test scenario
+        </p>
+        <p>
+          <strong>
+            Turn: 
+          </strong>
+          1
+        </p>
+        <p>
+          <strong>
+            Demons: 
+          </strong>
+          2
+           / 
+          3
+        </p>
+        <p>
+          <strong>
+            Troglodytes: 
+          </strong>
+          4
+           / 
+          5
+        </p>
+        <p>
+          <strong>
+            Tough Troglodytes: 
+          </strong>
+          6
+           / 
+          7
+        </p>
+        <p>
+          <strong>
+            Events: 
+          </strong>
+          8
+        </p>
+      </div>
+    </ModalContent>
+    <ModalActions>
+      <Button
+        as="button"
+        content="Close"
+        onClick={[Function]}
+        role="button"
+      />
+    </ModalActions>
+  </Modal>
+</Portal>
+`;

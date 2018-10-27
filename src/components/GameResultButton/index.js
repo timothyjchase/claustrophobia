@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Modal, Portal } from 'semantic-ui-react'
-import { SCENARIOS } from '../../config'
 
 class GameOverButton extends PureComponent {
   constructor(props) {
@@ -23,6 +22,7 @@ class GameOverButton extends PureComponent {
     const {
       as: ButtonComponent,
       currentState,
+      scenarioName,
       result,
       ...buttonProps
     } = this.props
@@ -55,7 +55,7 @@ class GameOverButton extends PureComponent {
               </p>
               <p>
                 <strong>Scenario: </strong>
-                {(SCENARIOS[currentState.scenario] || {}).name}
+                {scenarioName}
               </p>
               <p>
                 <strong>Turn: </strong>
@@ -101,6 +101,7 @@ GameOverButton.defaultProps = {
 GameOverButton.propTypes = {
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   currentState: PropTypes.object.isRequired,
+  scenarioName: PropTypes.string, // eslint-disable-line react/require-default-props
   result: PropTypes.string.isRequired,
 }
 

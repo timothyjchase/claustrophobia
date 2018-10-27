@@ -2,9 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, Message } from 'semantic-ui-react'
 
-const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
+const DemonActionPhase = ({
+  scenarioKey,
+  trogsSupernaturalSpeed,
+  trogsSharpenedClaws,
+  demonsInPlay,
+  completeDemonActionPhase,
+}) => (
   <div>
-    {currentState.trogsSupernaturalSpeed && (
+    {trogsSupernaturalSpeed && (
       <Message negative>
         <Message.Header>Supernatural Speed</Message.Header>
         <Message.Content>
@@ -14,7 +20,7 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
         </Message.Content>
       </Message>
     )}
-    {currentState.trogsSharpenedClaws && (
+    {trogsSharpenedClaws && (
       <Message negative>
         <Message.Header>Sharpened Claws</Message.Header>
         <Message.Content>
@@ -25,7 +31,7 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
       </Message>
     )}
 
-    {currentState.scenario !== 'THE_RITUAL' && (
+    {scenarioKey !== 'THE_RITUAL' && (
       <div>
         <p>
           <strong>Activation order: </strong>
@@ -47,7 +53,7 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
       </div>
     )}
 
-    {currentState.scenario === 'THE_RITUAL' && (
+    {scenarioKey === 'THE_RITUAL' && (
       <div>
         <p>
           <strong>Activation order: </strong>
@@ -61,7 +67,7 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
         <p>
           <strong>Move: </strong>
           Troglodytes move towards the Pentacle Room.
-          {!!currentState.demonsInPlay && (
+          {!!demonsInPlay && (
             <span>
               <span>The </span>
               <strong>Demon of Cruelty </strong>
@@ -87,8 +93,16 @@ const DemonActionPhase = ({ currentState, completeDemonActionPhase }) => (
   </div>
 )
 
+DemonActionPhase.defaultProps = {
+  trogsSupernaturalSpeed: false,
+  trogsSharpenedClaws: false,
+}
+
 DemonActionPhase.propTypes = {
-  currentState: PropTypes.object.isRequired,
+  scenarioKey: PropTypes.string.isRequired,
+  trogsSupernaturalSpeed: PropTypes.bool,
+  trogsSharpenedClaws: PropTypes.bool,
+  demonsInPlay: PropTypes.number.isRequired,
   completeDemonActionPhase: PropTypes.func.isRequired,
 }
 

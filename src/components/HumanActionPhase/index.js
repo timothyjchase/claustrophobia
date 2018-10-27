@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 const HumanActionPhase = ({
-  currentState,
+  scenarioKey,
+  oilForYourLamp,
+  demonsInPlay,
+  threatDice,
   addDemon,
   placeDemonicMechanismTile,
   placeTile,
@@ -12,43 +15,52 @@ const HumanActionPhase = ({
   <div>
     <p>Record removed warriors and the following actions below:</p>
     <Button.Group vertical fluid>
-      {!currentState.oilForYourLamp &&
-        currentState.scenario !== 'THE_RITUAL' && (
-          <Button onClick={placeDemonicMechanismTile}>
-            <Icon name="cog" />
-            <span> Demonic Mechanism tile (+2 Threat Die)</span>
-          </Button>
+      {!oilForYourLamp &&
+        scenarioKey !== 'THE_RITUAL' && (
+          <Button
+            icon="cog"
+            content="Demonic Mechanism tile (+2 Threat)"
+            onClick={placeDemonicMechanismTile}
+          />
         )}
-      {currentState.scenario === 'THE_POSSESSED' && (
-        <Button onClick={addDemon}>
-          <Icon name="box" />
-          <span> Stash tile (+1 Possessed One)</span>
-        </Button>
+      {scenarioKey === 'THE_POSSESSED' && (
+        <Button
+          icon="box"
+          content="Stash tile (+1 Possessed One)"
+          onClick={addDemon}
+        />
       )}
-      {currentState.scenario === 'HIT_THEM_WHERE_IT_HURTS' &&
-        !currentState.demonsInPlay && (
-          <Button onClick={addDemon}>
-            <Icon name="star outline" />
-            <span> Pentacle Room tile (+1 Master of Souls)</span>
-          </Button>
+      {scenarioKey === 'HIT_THEM_WHERE_IT_HURTS' &&
+        !demonsInPlay && (
+          <Button
+            icon="star outline"
+            content="Pentacle Room tile (+1 Master of Souls)"
+            onClick={addDemon}
+          />
         )}
-      {currentState.scenario === 'HIT_THEM_WHERE_IT_HURTS' &&
-        currentState.threatDice >= 3 && (
-          <Button onClick={placeTile}>
-            <Icon name="square plus outline" />
-            <span> Any other tile (+2 Troglodytes)</span>
-          </Button>
+      {scenarioKey === 'HIT_THEM_WHERE_IT_HURTS' &&
+        threatDice >= 3 && (
+          <Button
+            icon="square plus outline"
+            content="Any other tile (+2 Troglodytes)"
+            onClick={placeTile}
+          />
         )}
-      <Button primary onClick={completeHumanActionPhase}>
-        <Icon name="play" />
-        <span> Next Phase</span>
-      </Button>
+      <Button
+        primary
+        icon="play"
+        content="Next Phase"
+        onClick={completeHumanActionPhase}
+      />
     </Button.Group>
   </div>
 )
 
 HumanActionPhase.propTypes = {
-  currentState: PropTypes.object.isRequired,
+  scenarioKey: PropTypes.string.isRequired,
+  oilForYourLamp: PropTypes.bool.isRequired,
+  demonsInPlay: PropTypes.number.isRequired,
+  threatDice: PropTypes.number.isRequired,
   addDemon: PropTypes.func.isRequired,
   placeDemonicMechanismTile: PropTypes.func.isRequired,
   placeTile: PropTypes.func.isRequired,

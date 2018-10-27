@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Welcome /> with basic props should match snapshot 1`] = `
+<div>
+  <p>
+    Welcome to the
+    <strong>
+       Demon AI 
+    </strong>
+    app for playing the
+    <strong>
+       Claustrophobia 
+    </strong>
+    board game (by CROC) solo.
+  </p>
+  <p>
+    Please start by reading the short
+     
+    <RulesSummaryButton
+      as="a"
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      rules summary
+    </RulesSummaryButton>
+    .
+  </p>
+  <p>
+    It may be helpful to read the
+     
+    <DemonAISummaryButton
+      as="a"
+      style={
+        Object {
+          "cursor": "pointer",
+        }
+      }
+    >
+      Demon AI summary
+    </DemonAISummaryButton>
+     
+    to understand how it plays.
+  </p>
+  <p>
+    Now you're ready to pick a scenario and start playing!
+  </p>
+  <Dropdown
+    additionLabel="Add "
+    additionPosition="top"
+    closeOnBlur={true}
+    deburr={false}
+    fluid={true}
+    icon="dropdown"
+    minCharacters={1}
+    noResultsMessage="No results found."
+    onChange={[Function]}
+    openOnFocus={true}
+    options={
+      Array [
+        Object {
+          "key": "THE_SURVIVORS",
+          "text": "The Survivors",
+          "value": "THE_SURVIVORS",
+        },
+        Object {
+          "key": "HOLDING_BACK_THE_INVASION",
+          "text": "Holding Back The Invasion",
+          "value": "HOLDING_BACK_THE_INVASION",
+        },
+        Object {
+          "key": "HIT_THEM_WHERE_IT_HURTS",
+          "text": "Hit Them Where It Hurts",
+          "value": "HIT_THEM_WHERE_IT_HURTS",
+        },
+        Object {
+          "key": "THE_RITUAL",
+          "text": "The Ritual",
+          "value": "THE_RITUAL",
+        },
+        Object {
+          "key": "THE_POSSESSED",
+          "text": "The Possessed",
+          "value": "THE_POSSESSED",
+        },
+        Object {
+          "key": "WHO_DARES_WINS",
+          "text": "Who Dares, Wins",
+          "value": "WHO_DARES_WINS",
+        },
+      ]
+    }
+    placeholder="Pick a Scenario..."
+    renderLabel={[Function]}
+    search={true}
+    searchInput="text"
+    selectOnBlur={true}
+    selectOnNavigation={true}
+    selection={true}
+    wrapSelection={true}
+  />
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Start Game"
+      disabled={true}
+      fluid={true}
+      onClick={[Function]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+  <br />
+  <p>
+    <i>
+      This app is based on a solo variant written by Reverend Uncle Bastard (on BGG), with several changes (mainly to introduce events). If you want to play without the app, or you're just curious, check out the
+       
+      <a
+        href="https://www.boardgamegeek.com/thread/1307964/claustrophobia-solo-variant-demon-ai-now-hellhound"
+        target="_"
+      >
+        original variant
+      </a>
+      .
+    </i>
+  </p>
+</div>
+`;

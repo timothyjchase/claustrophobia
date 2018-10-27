@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InitiativePhase /> with oilForYourLamp = false should match snapshot 1`] = `
+<div>
+  <p>
+    Play this phase normally.
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Aura of Blessing (-2 Threat)"
+      icon="heart"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Oil For Your Lamp (No Events)"
+      icon="tint"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Next Phase"
+      fluid={true}
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<InitiativePhase /> with oilForYourLamp = true should match snapshot 1`] = `
+<div>
+  <p>
+    Play this phase normally.
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Aura of Blessing (-2 Threat)"
+      icon="heart"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Next Phase"
+      fluid={true}
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainMenu /> with basic props should match snapshot 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "float": "right",
+      }
+    }
+  >
+    <Dropdown
+      additionLabel="Add "
+      additionPosition="top"
+      closeOnBlur={true}
+      deburr={false}
+      direction="left"
+      icon="bars"
+      minCharacters={1}
+      noResultsMessage="No results found."
+      openOnFocus={true}
+      renderLabel={[Function]}
+      searchInput="text"
+      selectOnBlur={true}
+      selectOnNavigation={true}
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+      wrapSelection={true}
+    >
+      <DropdownMenu>
+        <DropdownItem
+          icon="refresh"
+          onClick={[MockFunction]}
+          text="Restart"
+        />
+        <DropdownItem
+          icon="undo"
+          onClick={[MockFunction]}
+          text="Undo"
+        />
+        <DropdownDivider />
+        <RulesSummaryButton
+          as={[Function]}
+          icon="book"
+          text="Rules"
+        />
+        <DemonAISummaryButton
+          as={[Function]}
+          icon="bug"
+          text="Demon AI"
+        />
+        <DropdownDivider />
+        <GameOverButton
+          as={[Function]}
+          currentState={Object {}}
+          icon="thumbs up outline"
+          result="Victory"
+          scenarioName="Test scenario"
+          text="Victory"
+        />
+        <GameOverButton
+          as={[Function]}
+          currentState={Object {}}
+          icon="thumbs down outline"
+          result="Defeat"
+          scenarioName="Test scenario"
+          text="Defeat"
+        />
+      </DropdownMenu>
+    </Dropdown>
+  </div>
+</div>
+`;

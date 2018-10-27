@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   current: {
-    scenario: null,
+    scenarioKey: null,
     turn: 0,
     phase: null,
     demonsInPlay: 0,

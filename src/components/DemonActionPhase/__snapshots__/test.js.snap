@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemonActionPhase /> with scenario = THE_POSSESSED should match snapshot 1`] = `
+<div>
+  <div>
+    <p>
+      <strong>
+        Activation order: 
+      </strong>
+      <span>
+        proximity to Human warriors (closest first).
+      </span>
+    </p>
+    <p>
+      <strong>
+        Action order: 
+      </strong>
+      if on a tile with a Human warrior, attack then move. Otherwise, move then attack.
+    </p>
+    <p>
+      <strong>
+        Move: 
+      </strong>
+      towards the closest Human warrior (largest group if tied).
+    </p>
+    <p>
+      <strong>
+        Attack: 
+      </strong>
+      most wounded Human warrior (lowest defense if tied).
+    </p>
+  </div>
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<DemonActionPhase /> with scenario = THE_POSSESSED, trogsSupernaturalSpeed = true, trogsSharpenedClaws = true should match snapshot 1`] = `
+<div>
+  <Message
+    negative={true}
+  >
+    <MessageHeader>
+      Supernatural Speed
+    </MessageHeader>
+    <MessageContent>
+      <span>
+        All Troglodytes gain 
+      </span>
+      <strong>
+        +1 MVT
+      </strong>
+      <span>
+        .
+      </span>
+    </MessageContent>
+  </Message>
+  <Message
+    negative={true}
+  >
+    <MessageHeader>
+      Sharpened Claws
+    </MessageHeader>
+    <MessageContent>
+      <span>
+        All Troglodytes are 
+      </span>
+      <strong>
+        Frantic
+      </strong>
+      <span>
+        .
+      </span>
+    </MessageContent>
+  </Message>
+  <div>
+    <p>
+      <strong>
+        Activation order: 
+      </strong>
+      <span>
+        proximity to Human warriors (closest first).
+      </span>
+    </p>
+    <p>
+      <strong>
+        Action order: 
+      </strong>
+      if on a tile with a Human warrior, attack then move. Otherwise, move then attack.
+    </p>
+    <p>
+      <strong>
+        Move: 
+      </strong>
+      towards the closest Human warrior (largest group if tied).
+    </p>
+    <p>
+      <strong>
+        Attack: 
+      </strong>
+      most wounded Human warrior (lowest defense if tied).
+    </p>
+  </div>
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<DemonActionPhase /> with scenario = THE_RITUAL, demonsInPlay=0 should match snapshot 1`] = `
+<div>
+  <div>
+    <p>
+      <strong>
+        Activation order: 
+      </strong>
+      proximity to the Pentacle Room (closest first).
+    </p>
+    <p>
+      <strong>
+        Action order: 
+      </strong>
+      if on a tile with a Human warrior, attack then move. Otherwise, move then attack.
+    </p>
+    <p>
+      <strong>
+        Move: 
+      </strong>
+      Troglodytes move towards the Pentacle Room.
+    </p>
+    <p>
+      <strong>
+        Attack: 
+      </strong>
+      most wounded Human warrior (lowest defense if tied).
+    </p>
+  </div>
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<DemonActionPhase /> with scenario = THE_RITUAL, demonsInPlay=1 should match snapshot 1`] = `
+<div>
+  <div>
+    <p>
+      <strong>
+        Activation order: 
+      </strong>
+      proximity to the Pentacle Room (closest first).
+    </p>
+    <p>
+      <strong>
+        Action order: 
+      </strong>
+      if on a tile with a Human warrior, attack then move. Otherwise, move then attack.
+    </p>
+    <p>
+      <strong>
+        Move: 
+      </strong>
+      Troglodytes move towards the Pentacle Room.
+      <span>
+        <span>
+          The 
+        </span>
+        <strong>
+          Demon of Cruelty 
+        </strong>
+        will not move.
+      </span>
+    </p>
+    <p>
+      <strong>
+        Attack: 
+      </strong>
+      most wounded Human warrior (lowest defense if tied).
+    </p>
+  </div>
+  <br />
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;

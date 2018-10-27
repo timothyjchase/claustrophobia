@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhaseHeader /> with phase = DEMON_ACTION should match snapshot 1`] = `
+<StepGroup
+  fluid={true}
+  unstackable={true}
+>
+  <Step
+    active={false}
+    disabled={true}
+    key="INITIATIVE"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Initiative
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="HUMAN_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Human
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="THREAT"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Threat
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={true}
+    disabled={false}
+    key="DEMON_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Demon
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+</StepGroup>
+`;
+
+exports[`<PhaseHeader /> with phase = HUMAN_ACTION should match snapshot 1`] = `
+<StepGroup
+  fluid={true}
+  unstackable={true}
+>
+  <Step
+    active={false}
+    disabled={true}
+    key="INITIATIVE"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Initiative
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={true}
+    disabled={false}
+    key="HUMAN_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Human
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="THREAT"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Threat
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="DEMON_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Demon
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+</StepGroup>
+`;
+
+exports[`<PhaseHeader /> with phase = INITIATIVE should match snapshot 1`] = `
+<StepGroup
+  fluid={true}
+  unstackable={true}
+>
+  <Step
+    active={true}
+    disabled={false}
+    key="INITIATIVE"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Initiative
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="HUMAN_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Human
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="THREAT"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Threat
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="DEMON_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Demon
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+</StepGroup>
+`;
+
+exports[`<PhaseHeader /> with phase = THREAT should match snapshot 1`] = `
+<StepGroup
+  fluid={true}
+  unstackable={true}
+>
+  <Step
+    active={false}
+    disabled={true}
+    key="INITIATIVE"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Initiative
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="HUMAN_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Human
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={true}
+    disabled={false}
+    key="THREAT"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Threat
+      </StepDescription>
+    </StepContent>
+  </Step>
+  <Step
+    active={false}
+    disabled={true}
+    key="DEMON_ACTION"
+    style={
+      Object {
+        "padding": "5px 0px 5px 0px",
+      }
+    }
+  >
+    <StepContent>
+      <StepDescription>
+        Demon
+      </StepDescription>
+      <StepDescription>
+        Actions
+      </StepDescription>
+    </StepContent>
+  </Step>
+</StepGroup>
+`;

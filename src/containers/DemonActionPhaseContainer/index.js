@@ -11,12 +11,23 @@ const mapStateToProps = state => ({
 const InitiativePhaseContainer = ({
   currentState,
   completeDemonActionPhase,
-}) => (
-  <DemonActionPhase
-    currentState={currentState}
-    completeDemonActionPhase={completeDemonActionPhase}
-  />
-)
+}) => {
+  const {
+    scenarioKey,
+    trogsSupernaturalSpeed,
+    trogsSharpenedClaws,
+    demonsInPlay,
+  } = currentState
+  return (
+    <DemonActionPhase
+      scenarioKey={scenarioKey}
+      trogsSupernaturalSpeed={trogsSupernaturalSpeed}
+      trogsSharpenedClaws={trogsSharpenedClaws}
+      demonsInPlay={demonsInPlay}
+      completeDemonActionPhase={completeDemonActionPhase}
+    />
+  )
+}
 
 InitiativePhaseContainer.propTypes = {
   currentState: PropTypes.object.isRequired,

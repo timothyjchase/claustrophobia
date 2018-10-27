@@ -1,8 +1,8 @@
 import React from 'react'
 import ThreatEventStep from './index'
 
-describe('<ViewDocumentPage />', () => {
-  describe('with document', () => {
+describe('<ThreatEventStep />', () => {
+  describe('with basic props', () => {
     const props = {
       completeThreatEventStep: jest.fn(),
     }
