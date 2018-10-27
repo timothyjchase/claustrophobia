@@ -1,5 +1,21 @@
-import { SCENARIOS, PHASES, THREAT_PHASE_STEPS, EVENTS } from '../config'
+import {
+  INITIATIVE_PHASE,
+  HUMAN_ACTION_PHASE,
+  THREAT_PHASE,
+  DEMON_ACTION_PHASE,
+  SCENARIOS,
+  EVENTS,
+} from '../config'
 
+// Threat phase steps
+const THREAT_EVENT_STEP = 'THREAT_EVENT'
+const CHECK_DEMON_PLACEMENT_STEP = 'CHECK_DEMON_PLACEMENT'
+const CHECK_TROGS_PLACEMENT_STEP = 'CHECK_TROGS_PLACEMENT'
+const SPAWN_DEMON_STEP = 'SPAWN_DEMON'
+const SPAWN_TROGS_STEP = 'SPAWN_TROGS'
+const CHECK_TROGS_DISTANCE_STEP = 'CHECK_TROGS_DISTANCE'
+
+// Dispatch event types
 const CHANGE_GAME_STATE = 'CHANGE_GAME_STATE'
 const RESET_GAME_STATE = 'RESET_GAME_STATE'
 const UNDO_LAST_CHANGE = 'UNDO_LAST_CHANGE'
@@ -26,7 +42,7 @@ const getEventResult = (state, phase) => {
 const startGame = scenarioKey => dispatch => {
   dispatch({
     type: CHANGE_GAME_STATE,
-    payload: { scenarioKey, turn: 1, phase: PHASES.INITIATIVE },
+    payload: { scenarioKey, turn: 1, phase: INITIATIVE_PHASE },
   })
 }
 
@@ -50,8 +66,8 @@ const completeInitiativePhase = () => (dispatch, getState) => {
   dispatch({
     type: CHANGE_GAME_STATE,
     payload: {
-      phase: PHASES.HUMAN_ACTION,
-      ...getEventResult(state, PHASES.INITIATIVE),
+      phase: HUMAN_ACTION_PHASE,
+      ...getEventResult(state, INITIATIVE_PHASE),
     },
   })
 }
@@ -59,9 +75,9 @@ const completeInitiativePhase = () => (dispatch, getState) => {
 const completeHumanActionPhase = () => (dispatch, getState) => {
   const state = getState().current
   const payload = {
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
     threatRoll: getRandomNumber(),
-    ...getEventResult(state, PHASES.HUMAN_ACTION),
+    ...getEventResult(state, HUMAN_ACTION_PHASE),
   }
   // Add to Threat Die for The Ritual scenario
   if (
@@ -77,18 +93,18 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
     state.demonsAdded < SCENARIOS[state.scenarioKey].demonLimit
   ) {
     if (state.threatRoll > state.demonDice) {
-      payload.threatStep = THREAT_PHASE_STEPS.CHECK_DEMON_PLACEMENT
+      payload.threatStep = CHECK_DEMON_PLACEMENT_STEP
     } else {
       payload.demonDice = state.demonDice - 1
     }
   }
   // Check for adding Trogs
   if (!payload.threatStep && state.trogsInPlay < state.threatDice) {
-    payload.threatStep = THREAT_PHASE_STEPS.CHECK_TROGS_PLACEMENT
+    payload.threatStep = CHECK_TROGS_PLACEMENT_STEP
   }
   // Default next step
   if (!payload.threatStep) {
-    payload.threatStep = THREAT_PHASE_STEPS.CHECK_TROGS_DISTANCE
+    payload.threatStep = CHECK_TROGS_DISTANCE_STEP
   }
 
   dispatch({
@@ -99,10 +115,10 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
 
 const getCompleteThreatPhase = state => {
   const payload = {
-    phase: PHASES.DEMON_ACTION,
+    phase: DEMON_ACTION_PHASE,
     threatStep: null,
     threatDice: state.threatDice,
-    ...getEventResult(state, PHASES.THREAT),
+    ...getEventResult(state, THREAT_PHASE),
   }
   if (payload.threatDice >= 1 && state.trogsFar) {
     payload.trogsSupernaturalSpeed = true
@@ -142,9 +158,9 @@ const getEventOrCompleteThreatPhase = state => {
   if (state.eventRequired) {
     upcomingEvent = drawEvent(state)
   }
-  if (upcomingEvent && upcomingEvent.phase === PHASES.THREAT) {
+  if (upcomingEvent && upcomingEvent.phase === THREAT_PHASE) {
     return {
-      threatStep: THREAT_PHASE_STEPS.THREAT_EVENT,
+      threatStep: THREAT_EVENT_STEP,
       eventRequired: false,
       upcomingEvent,
     }
@@ -157,7 +173,7 @@ const completeThreatDemonPlacementStep = legalPlacement => dispatch => {
     type: CHANGE_GAME_STATE,
     payload: {
       legalPlacement,
-      threatStep: THREAT_PHASE_STEPS.SPAWN_DEMON,
+      threatStep: SPAWN_DEMON_STEP,
     },
   })
 }
@@ -167,7 +183,7 @@ const completeThreatTrogsPlacementStep = legalPlacement => dispatch => {
     type: CHANGE_GAME_STATE,
     payload: {
       legalPlacement,
-      threatStep: THREAT_PHASE_STEPS.SPAWN_TROGS,
+      threatStep: SPAWN_TROGS_STEP,
     },
   })
 }
@@ -201,7 +217,7 @@ const completeThreatSpawnTrogsStep = trogs => (dispatch, getState) => {
       threatDice: Math.max(state.threatDice - 1, 1),
       trogsInPlay: state.trogsInPlay + trogs,
       trogsAdded: state.trogsAdded + trogs,
-      threatStep: THREAT_PHASE_STEPS.CHECK_TROGS_DISTANCE,
+      threatStep: CHECK_TROGS_DISTANCE_STEP,
     },
   })
 }
@@ -233,14 +249,14 @@ const completeDemonActionPhase = () => (dispatch, getState) => {
   const state = getState().current
   const payload = {
     turn: state.turn + 1,
-    phase: PHASES.INITIATIVE,
+    phase: INITIATIVE_PHASE,
     legalPlacement: false,
     trogsFar: false,
     trogsClose: false,
     trogsSupernaturalSpeed: false,
     trogsSharpenedClaws: false,
     oilForYourLamp: false,
-    ...getEventResult(state, PHASES.DEMON_ACTION),
+    ...getEventResult(state, DEMON_ACTION_PHASE),
   }
   dispatch({
     type: CHANGE_GAME_STATE,

@@ -1,3 +1,8 @@
+const INITIATIVE_PHASE = 'INITIATIVE'
+const HUMAN_ACTION_PHASE = 'HUMAN_ACTION'
+const THREAT_PHASE = 'THREAT'
+const DEMON_ACTION_PHASE = 'DEMON_ACTION'
+
 const SCENARIOS = {
   THE_SURVIVORS: {
     name: 'The Survivors',
@@ -36,22 +41,6 @@ const SCENARIOS = {
     demon: 'DEMON_OF_DESTRUCTION',
     demonLimit: 2,
   },
-}
-
-const PHASES = {
-  INITIATIVE: 'INITIATIVE',
-  HUMAN_ACTION: 'HUMAN_ACTION',
-  THREAT: 'THREAT',
-  DEMON_ACTION: 'DEMON_ACTION',
-}
-
-const THREAT_PHASE_STEPS = {
-  THREAT_EVENT: 'THREAT_EVENT',
-  CHECK_DEMON_PLACEMENT: 'CHECK_DEMON_PLACEMENT',
-  CHECK_TROGS_PLACEMENT: 'CHECK_TROGS_PLACEMENT',
-  SPAWN_DEMON: 'SPAWN_DEMON',
-  SPAWN_TROGS: 'SPAWN_TROGS',
-  CHECK_TROGS_DISTANCE: 'CHECK_TROGS_DISTANCE',
 }
 
 const DEMON_WARRIORS = {
@@ -147,22 +136,22 @@ const EVENTS = {
         a tile adjacent to the blocked opening. Remove the token once the
         cave-in is cleared.`
     },
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
   },
   CRISIS_OF_FAITH: {
     name: 'Crisis of Faith',
     description: 'Gifts may not be played this turn.',
-    phase: PHASES.INITIATIVE,
+    phase: INITIATIVE_PHASE,
   },
   DEFECT: {
     name: 'Defect',
     description: 'Discard an Object card of your choice.',
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
   },
   DEMONIC_RAGE: {
     name: 'Demonic Rage',
     description: 'The Demon is <strong>Frantic</strong>.',
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
     checkRelevent: state => state.demonsInPlay > 0,
   },
   DEMONIC_POSSESSION: {
@@ -171,21 +160,21 @@ const EVENTS = {
       with at least 1 other Human warrior attacks a Human warrior on that
       tile (if multiple, choose lowest DEF then most wounds).
       He cannot use a Grenade or his Bodyguard Talent.`,
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
   },
   PANIC: {
     name: 'Panic!',
     description: `Assign Action Dice to Human warriors randomly.<br><br>
       If the assigned Line of Action is cancelled, the Action Dice may be
       rerolled once per Human warrior.`,
-    phase: PHASES.INITIATIVE,
+    phase: INITIATIVE_PHASE,
   },
   SUICIDE_ATTACK: {
     name: 'Suicide Attack',
     description: `Choose 1 Troglodyte attacking this phase.
       It will gain <strong>+2 CBT</strong> for the attack.<br><br>
       Then remove the Troglodyte from the game.`,
-    phase: PHASES.DEMON_ACTION,
+    phase: DEMON_ACTION_PHASE,
     checkRelevent: state => state.trogsInPlay > 0,
   },
   TERROR: {
@@ -202,12 +191,12 @@ const EVENTS = {
         random adjacent tile via an opening, without exceeding the tile limit.
         Ignore the Blocking rule.`
     },
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
   },
   THEY_ARE_LEGION: {
     name: 'They Are Legion',
     description: `All Troglodytes gain +1 DEF during this phase.`,
-    phase: PHASES.HUMAN_ACTION,
+    phase: HUMAN_ACTION_PHASE,
   },
   TOUGH_TROGLODYTE: {
     name: 'Tough Troglodyte',
@@ -225,7 +214,7 @@ const EVENTS = {
         (like a Demon). It is represented by placing the relevant token next
         to a regular Troglodyte miniature.`
     },
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
     checkRelevent: state => state.scenarioKey !== SCENARIOS.THE_RITUAL,
     getResult: state => ({
       toughTrogsInPlay: state.toughTrogsInPlay + 1,
@@ -237,22 +226,30 @@ const EVENTS = {
     description: `Roll a die for each Human warrior on the tile with the most
       Human warriors. A Human warrior suffer a hit on a die result of 3 or
       more.`,
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
   },
   TRAP: {
     name: 'Trap',
     description: `Apply 1 hit to the Human warrior with the most wounds
       (you may choose if tied).`,
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
   },
   UNDER_THE_SIGN_OF_SATAN: {
     name: 'Under the Sign of Satan',
     description: `The Demon gains <strong>+1 MVT</strong>,
       <strong>+1 CBT</strong> and <strong>+1 DEF</strong> until the beginning
       of the next Threat Phase. Place the appropriate token to track this.`,
-    phase: PHASES.THREAT,
+    phase: THREAT_PHASE,
     checkRelevent: state => state.demonsInPlay > 0,
   },
 }
 
-export { SCENARIOS, PHASES, THREAT_PHASE_STEPS, DEMON_WARRIORS, EVENTS }
+export {
+  INITIATIVE_PHASE,
+  HUMAN_ACTION_PHASE,
+  THREAT_PHASE,
+  DEMON_ACTION_PHASE,
+  SCENARIOS,
+  DEMON_WARRIORS,
+  EVENTS,
+}
