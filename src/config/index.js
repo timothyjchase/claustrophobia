@@ -215,7 +215,7 @@ const EVENTS = {
         to a regular Troglodyte miniature.`
     },
     phase: THREAT_PHASE,
-    checkRelevent: state => state.scenarioKey !== SCENARIOS.THE_RITUAL,
+    checkRelevent: state => state.scenarioKey !== 'THE_RITUAL',
     getResult: state => ({
       toughTrogsInPlay: state.toughTrogsInPlay + 1,
       toughTrogsAdded: state.toughTrogsAdded + 1,

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InitiativePhaseContainer /> with scenarioKey = TEST_SCENARIO should match snapshot 1`] = `
+<InitiativePhase
+  completeInitiativePhase={[MockFunction]}
+  oilForYourLamp={false}
+  useAuraOfBlessing={[MockFunction]}
+  useOilForYourLamp={[MockFunction]}
+/>
+`;

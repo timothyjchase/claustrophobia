@@ -4,7 +4,7 @@ import {
   UNDO_LAST_CHANGE,
 } from '../actions'
 
-const initialState = {
+export const initialState = {
   current: {
     scenarioKey: null,
     turn: 0,
@@ -56,5 +56,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export { initialState }
 export default reducer

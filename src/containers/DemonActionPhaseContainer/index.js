@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { completeDemonActionPhase } from '../../actions'
 import DemonActionPhase from '../../components/DemonActionPhase'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const InitiativePhaseContainer = ({
+export const DemonActionPhaseContainer = ({
   currentState,
   completeDemonActionPhase,
 }) => {
@@ -29,7 +29,7 @@ const InitiativePhaseContainer = ({
   )
 }
 
-InitiativePhaseContainer.propTypes = {
+DemonActionPhaseContainer.propTypes = {
   currentState: PropTypes.object.isRequired,
   completeDemonActionPhase: PropTypes.func.isRequired,
 }
@@ -37,4 +37,4 @@ InitiativePhaseContainer.propTypes = {
 export default connect(
   mapStateToProps,
   { completeDemonActionPhase },
-)(InitiativePhaseContainer)
+)(DemonActionPhaseContainer)

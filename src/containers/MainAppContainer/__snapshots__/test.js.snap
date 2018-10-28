@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainAppContainer /> with scenarioKey = TEST_SCENARIO should match snapshot 1`] = `
+<MainApp
+  currentState={
+    Object {
+      "scenarioKey": "TEST_SCENARIO",
+    }
+  }
+  resetGame={[MockFunction]}
+  scenarioName="Test Scenario"
+  startGame={[MockFunction]}
+  undoLastChange={[MockFunction]}
+/>
+`;
+
+exports[`<MainAppContainer /> with scenarioKey = null should match snapshot 1`] = `
+<MainApp
+  currentState={
+    Object {
+      "scenarioKey": null,
+    }
+  }
+  resetGame={[MockFunction]}
+  startGame={[MockFunction]}
+  undoLastChange={[MockFunction]}
+/>
+`;

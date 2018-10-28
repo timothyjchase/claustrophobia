@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { removeEvent } from '../../actions'
 import EventMessage from '../../components/EventMessage'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const EventMessageContainer = ({ currentState, removeEvent }) => {
+export const EventMessageContainer = ({ currentState, removeEvent }) => {
   const { upcomingEvent } = currentState
   if (!!upcomingEvent && upcomingEvent.phase === currentState.phase) {
     return (

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThreatPhaseContainer /> with scenarioKey = TEST_SCENARIO should match snapshot 1`] = `
+<ThreatPhase
+  completeThreatDemonPlacementStep={[MockFunction]}
+  completeThreatEventStep={[MockFunction]}
+  completeThreatSpawnDemonStep={[MockFunction]}
+  completeThreatSpawnTrogsStep={[MockFunction]}
+  completeThreatTrogsDistanceStep={[MockFunction]}
+  completeThreatTrogsPlacementStep={[MockFunction]}
+  demonName="Test Demon"
+  legalPlacement={true}
+  scenario={
+    Object {
+      "demon": "TEST_DEMON",
+      "name": "Test Scenario",
+    }
+  }
+  threatDice={6}
+  threatStep="STEP"
+/>
+`;
+
+exports[`<ThreatPhaseContainer /> with scenarioKey = null should match snapshot 1`] = `
+<ThreatPhase
+  completeThreatDemonPlacementStep={[MockFunction]}
+  completeThreatEventStep={[MockFunction]}
+  completeThreatSpawnDemonStep={[MockFunction]}
+  completeThreatSpawnTrogsStep={[MockFunction]}
+  completeThreatTrogsDistanceStep={[MockFunction]}
+  completeThreatTrogsPlacementStep={[MockFunction]}
+  demonName="Demon"
+  legalPlacement={true}
+  scenario={Object {}}
+  threatDice={6}
+  threatStep="STEP"
+/>
+`;

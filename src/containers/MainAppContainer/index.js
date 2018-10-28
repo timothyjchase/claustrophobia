@@ -5,11 +5,11 @@ import { startGame, resetGame, undoLastChange } from '../../actions'
 import MainApp from '../../components/MainApp'
 import { SCENARIOS } from '../../config'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const MainAppContainer = ({
+export const MainAppContainer = ({
   currentState,
   startGame,
   resetGame,

@@ -12,11 +12,11 @@ import {
 import ThreatPhase from '../../components/ThreatPhase'
 import { DEMON_WARRIORS, SCENARIOS } from '../../config'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const ThreatPhaseContainer = ({
+export const ThreatPhaseContainer = ({
   currentState,
   completeThreatDemonPlacementStep,
   completeThreatTrogsDistanceStep,

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GameSummaryContainer /> with scenarioKey = TEST_SCENARIO should match snapshot 1`] = `
+<GameSummary
+  demonDice={2}
+  threatDice={3}
+  turn={1}
+  warriors={
+    Array [
+      Object {
+        "name": "Test Demon",
+        "numberInPlay": 4,
+        "onRemove": [MockFunction],
+      },
+      Object {
+        "name": "Tough Troglodyte",
+        "numberInPlay": 5,
+        "onRemove": [MockFunction],
+      },
+      Object {
+        "name": "Troglodyte",
+        "numberInPlay": 6,
+        "onRemove": [MockFunction],
+      },
+    ]
+  }
+/>
+`;
+
+exports[`<GameSummaryContainer /> with scenarioKey = null should match snapshot 1`] = `
+<GameSummary
+  demonDice={2}
+  threatDice={3}
+  turn={1}
+  warriors={
+    Array [
+      Object {
+        "numberInPlay": 4,
+        "onRemove": [MockFunction],
+      },
+      Object {
+        "name": "Tough Troglodyte",
+        "numberInPlay": 5,
+        "onRemove": [MockFunction],
+      },
+      Object {
+        "name": "Troglodyte",
+        "numberInPlay": 6,
+        "onRemove": [MockFunction],
+      },
+    ]
+  }
+/>
+`;

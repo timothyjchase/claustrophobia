@@ -5,11 +5,11 @@ import { removeDemon, removeToughTrog, removeTrog } from '../../actions'
 import GameSummary from '../../components/GameSummary'
 import { DEMON_WARRIORS, SCENARIOS } from '../../config'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const GameSummaryContainer = ({
+export const GameSummaryContainer = ({
   currentState,
   removeDemon,
   removeToughTrog,
@@ -17,28 +17,36 @@ const GameSummaryContainer = ({
 }) => {
   const demon =
     DEMON_WARRIORS[(SCENARIOS[currentState.scenarioKey] || {}).demon] || {}
+  const {
+    turn,
+    demonDice,
+    threatDice,
+    demonsInPlay,
+    toughTrogsInPlay,
+    trogsInPlay,
+  } = currentState
   const warriors = [
     {
       ...demon,
-      numberInPlay: currentState.demonsInPlay,
+      numberInPlay: demonsInPlay,
       onRemove: removeDemon,
     },
     {
       ...DEMON_WARRIORS.TOUGH_TROGLODYTE,
-      numberInPlay: currentState.toughTrogsInPlay,
+      numberInPlay: toughTrogsInPlay,
       onRemove: removeToughTrog,
     },
     {
       ...DEMON_WARRIORS.TROGLODYTE,
-      numberInPlay: currentState.trogsInPlay,
+      numberInPlay: trogsInPlay,
       onRemove: removeTrog,
     },
   ]
   return (
     <GameSummary
-      turn={currentState.turn}
-      demonDice={currentState.demonDice}
-      threatDice={currentState.threatDice}
+      turn={turn}
+      demonDice={demonDice}
+      threatDice={threatDice}
       warriors={warriors}
     />
   )

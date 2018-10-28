@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DemonActionPhaseContainer /> with basic props should match snapshot 1`] = `
+<DemonActionPhase
+  completeDemonActionPhase={[MockFunction]}
+  demonsInPlay={0}
+  scenarioKey="Test Scenario"
+  trogsSharpenedClaws={false}
+  trogsSupernaturalSpeed={false}
+/>
+`;

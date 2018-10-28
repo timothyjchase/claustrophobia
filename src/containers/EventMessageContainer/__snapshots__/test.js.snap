@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EventMessageContainer /> with event matching current phase should match snapshot 1`] = `
+<EventMessage
+  removeEvent={[MockFunction]}
+  upcomingEvent={
+    Object {
+      "phase": "Test Phase",
+    }
+  }
+/>
+`;
+
+exports[`<EventMessageContainer /> with event matching not current phase should match snapshot 1`] = `""`;
+
+exports[`<EventMessageContainer /> with no event should match snapshot 1`] = `""`;

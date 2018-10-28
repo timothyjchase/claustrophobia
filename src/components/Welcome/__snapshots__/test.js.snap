@@ -61,34 +61,9 @@ exports[`<Welcome /> with basic props should match snapshot 1`] = `
     options={
       Array [
         Object {
-          "key": "THE_SURVIVORS",
-          "text": "The Survivors",
-          "value": "THE_SURVIVORS",
-        },
-        Object {
-          "key": "HOLDING_BACK_THE_INVASION",
-          "text": "Holding Back The Invasion",
-          "value": "HOLDING_BACK_THE_INVASION",
-        },
-        Object {
-          "key": "HIT_THEM_WHERE_IT_HURTS",
-          "text": "Hit Them Where It Hurts",
-          "value": "HIT_THEM_WHERE_IT_HURTS",
-        },
-        Object {
-          "key": "THE_RITUAL",
-          "text": "The Ritual",
-          "value": "THE_RITUAL",
-        },
-        Object {
-          "key": "THE_POSSESSED",
-          "text": "The Possessed",
-          "value": "THE_POSSESSED",
-        },
-        Object {
-          "key": "WHO_DARES_WINS",
-          "text": "Who Dares, Wins",
-          "value": "WHO_DARES_WINS",
+          "key": "TEST_SCENARIO",
+          "text": "Test Scenario",
+          "value": "TEST_SCENARIO",
         },
       ]
     }

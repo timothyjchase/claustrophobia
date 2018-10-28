@@ -9,28 +9,31 @@ import {
 } from '../../actions'
 import HumanActionPhase from '../../components/HumanActionPhase'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const HumanActionPhaseContainer = ({
+export const HumanActionPhaseContainer = ({
   currentState,
   addDemon,
   placeDemonicMechanismTile,
   placeTile,
   completeHumanActionPhase,
-}) => (
-  <HumanActionPhase
-    scenarioKey={currentState.scenarioKey}
-    oilForYourLamp={currentState.oilForYourLamp}
-    demonsInPlay={currentState.demonsInPlay}
-    threatDice={currentState.threatDice}
-    addDemon={addDemon}
-    placeDemonicMechanismTile={placeDemonicMechanismTile}
-    placeTile={placeTile}
-    completeHumanActionPhase={completeHumanActionPhase}
-  />
-)
+}) => {
+  const { scenarioKey, oilForYourLamp, demonsInPlay, threatDice } = currentState
+  return (
+    <HumanActionPhase
+      scenarioKey={scenarioKey}
+      oilForYourLamp={oilForYourLamp}
+      demonsInPlay={demonsInPlay}
+      threatDice={threatDice}
+      addDemon={addDemon}
+      placeDemonicMechanismTile={placeDemonicMechanismTile}
+      placeTile={placeTile}
+      completeHumanActionPhase={completeHumanActionPhase}
+    />
+  )
+}
 
 HumanActionPhaseContainer.propTypes = {
   currentState: PropTypes.object.isRequired,

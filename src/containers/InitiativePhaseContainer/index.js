@@ -8,11 +8,11 @@ import {
 } from '../../actions'
 import InitiativePhase from '../../components/InitiativePhase'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   currentState: state.current,
 })
 
-const InitiativePhaseContainer = ({
+export const InitiativePhaseContainer = ({
   currentState,
   useAuraOfBlessing,
   useOilForYourLamp,

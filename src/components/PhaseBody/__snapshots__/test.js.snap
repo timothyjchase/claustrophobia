@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PhaseBody /> with phase = DEMON_ACTION should match snapshot 1`] = `<Connect(InitiativePhaseContainer) />`;
+exports[`<PhaseBody /> with phase = DEMON_ACTION should match snapshot 1`] = `<Connect(DemonActionPhaseContainer) />`;
 
 exports[`<PhaseBody /> with phase = HUMAN_ACTION should match snapshot 1`] = `<Connect(HumanActionPhaseContainer) />`;
 

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HumanActionPhaseContainer /> with scenarioKey = TEST_SCENARIO should match snapshot 1`] = `
+<HumanActionPhase
+  addDemon={[MockFunction]}
+  completeHumanActionPhase={[MockFunction]}
+  demonsInPlay={2}
+  oilForYourLamp={false}
+  placeDemonicMechanismTile={[MockFunction]}
+  placeTile={[MockFunction]}
+  scenarioKey="TEST_SCENARIO"
+  threatDice={1}
+/>
+`;
