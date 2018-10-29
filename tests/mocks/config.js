@@ -7,6 +7,7 @@ const SCENARIOS = {
   TEST_SCENARIO: {
     name: 'Test Scenario',
     demon: 'TEST_DEMON',
+    demonLimit: 1,
   },
 }
 
@@ -25,6 +26,15 @@ const DEMON_WARRIORS = {
 const EVENTS = {
   TEST_EVENT: {
     name: 'Test Event',
+    phase: THREAT_PHASE,
+    getDescription: () => 'description',
+    checkRelevent: () => true,
+    getResult: () => {},
+  },
+  SIMPLE_EVENT: {
+    name: 'Simple Event',
+    phase: THREAT_PHASE,
+    description: 'description',
   },
 }
 

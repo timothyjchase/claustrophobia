@@ -13,6 +13,7 @@ exports[`<ThreatPhaseContainer /> with scenarioKey = TEST_SCENARIO should match 
   scenario={
     Object {
       "demon": "TEST_DEMON",
+      "demonLimit": 1,
       "name": "Test Scenario",
     }
   }

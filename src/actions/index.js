@@ -4,11 +4,15 @@ import {
   THREAT_PHASE,
   DEMON_ACTION_PHASE,
   SCENARIOS,
-  EVENTS,
 } from '../config'
+import {
+  getRandomNumber,
+  getEventResult,
+  getCompleteThreatPhase,
+  getEventOrCompleteThreatPhase,
+} from './actionHelpers'
 
 // Threat phase steps
-const THREAT_EVENT_STEP = 'THREAT_EVENT'
 const CHECK_DEMON_PLACEMENT_STEP = 'CHECK_DEMON_PLACEMENT'
 const CHECK_TROGS_PLACEMENT_STEP = 'CHECK_TROGS_PLACEMENT'
 const SPAWN_DEMON_STEP = 'SPAWN_DEMON'
@@ -19,25 +23,6 @@ const CHECK_TROGS_DISTANCE_STEP = 'CHECK_TROGS_DISTANCE'
 const CHANGE_GAME_STATE = 'CHANGE_GAME_STATE'
 const RESET_GAME_STATE = 'RESET_GAME_STATE'
 const UNDO_LAST_CHANGE = 'UNDO_LAST_CHANGE'
-
-const getRandomNumber = (min = 1, max = 6) =>
-  Math.floor(Math.random() * max) + min
-
-const getEventResult = (state, phase) => {
-  const { upcomingEvent, eventCount } = state
-  if (upcomingEvent && upcomingEvent.phase === phase) {
-    let result = {}
-    if (EVENTS[upcomingEvent.key].getResult) {
-      result = EVENTS[upcomingEvent.key].getResult(state)
-    }
-    return {
-      upcomingEvent: null,
-      eventCount: eventCount + 1,
-      ...result,
-    }
-  }
-  return {}
-}
 
 const startGame = scenarioKey => dispatch => {
   dispatch({
@@ -77,6 +62,7 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
   const payload = {
     phase: THREAT_PHASE,
     threatRoll: getRandomNumber(),
+    threatDice: state.threatDice,
     ...getEventResult(state, HUMAN_ACTION_PHASE),
   }
   // Add to Threat Die for The Ritual scenario
@@ -90,16 +76,16 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
   // Check for adding a Demon
   if (
     !state.demonsInPlay &&
-    state.demonsAdded < SCENARIOS[state.scenarioKey].demonLimit
+    state.demonsAdded < (SCENARIOS[state.scenarioKey] || {}).demonLimit
   ) {
-    if (state.threatRoll > state.demonDice) {
+    if (payload.threatRoll > state.demonDice) {
       payload.threatStep = CHECK_DEMON_PLACEMENT_STEP
     } else {
       payload.demonDice = state.demonDice - 1
     }
   }
   // Check for adding Trogs
-  if (!payload.threatStep && state.trogsInPlay < state.threatDice) {
+  if (!payload.threatStep && state.trogsInPlay < payload.threatDice) {
     payload.threatStep = CHECK_TROGS_PLACEMENT_STEP
   }
   // Default next step
@@ -111,61 +97,6 @@ const completeHumanActionPhase = () => (dispatch, getState) => {
     type: CHANGE_GAME_STATE,
     payload,
   })
-}
-
-const getCompleteThreatPhase = state => {
-  const payload = {
-    phase: DEMON_ACTION_PHASE,
-    threatStep: null,
-    threatDice: state.threatDice,
-    ...getEventResult(state, THREAT_PHASE),
-  }
-  if (payload.threatDice >= 1 && state.trogsFar) {
-    payload.trogsSupernaturalSpeed = true
-    payload.threatDice -= 2
-  }
-  if (state.scenarioKey === 'THE_RITUAL' && state.demonsInPlay) {
-    payload.trogsSharpenedClaws = true
-  } else if (payload.threatDice >= 1 && state.trogsClose) {
-    payload.trogsSharpenedClaws = true
-    payload.threatDice -= 1
-  }
-  if (payload.threatDice < 1) {
-    payload.threatDice = getRandomNumber()
-  }
-  return payload
-}
-
-const drawEvent = state => {
-  const keys = Object.keys(EVENTS)
-  const key = keys[getRandomNumber(0, keys.length - 1)]
-  const eventConfig = EVENTS[key]
-  if (eventConfig.checkRelevent && !eventConfig.checkRelevent(state)) {
-    return drawEvent(state)
-  }
-  return {
-    key,
-    name: eventConfig.name,
-    description: eventConfig.getDescription
-      ? eventConfig.getDescription(state)
-      : eventConfig.description,
-    phase: eventConfig.phase,
-  }
-}
-
-const getEventOrCompleteThreatPhase = state => {
-  let upcomingEvent
-  if (state.eventRequired) {
-    upcomingEvent = drawEvent(state)
-  }
-  if (upcomingEvent && upcomingEvent.phase === THREAT_PHASE) {
-    return {
-      threatStep: THREAT_EVENT_STEP,
-      eventRequired: false,
-      upcomingEvent,
-    }
-  }
-  return getCompleteThreatPhase(state)
 }
 
 const completeThreatDemonPlacementStep = legalPlacement => dispatch => {
