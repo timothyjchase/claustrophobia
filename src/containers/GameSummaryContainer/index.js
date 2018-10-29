@@ -15,9 +15,8 @@ export const GameSummaryContainer = ({
   removeToughTrog,
   removeTrog,
 }) => {
-  const demon =
-    DEMON_WARRIORS[(SCENARIOS[currentState.scenarioKey] || {}).demon] || {}
   const {
+    scenarioKey,
     turn,
     demonDice,
     threatDice,
@@ -25,6 +24,7 @@ export const GameSummaryContainer = ({
     toughTrogsInPlay,
     trogsInPlay,
   } = currentState
+  const demon = DEMON_WARRIORS[(SCENARIOS[scenarioKey] || {}).demon] || {}
   const warriors = [
     {
       ...demon,

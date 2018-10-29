@@ -25,6 +25,14 @@ exports[`<HumanActionPhase /> with scenario = HIT_THEM_WHERE_IT_HURTS, demonsInP
     />
     <Button
       as="button"
+      content="Any other tile (+2 Troglodytes)"
+      disabled={true}
+      icon="square plus outline"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
       content="Next Phase"
       icon="play"
       onClick={[MockFunction]}
@@ -54,6 +62,7 @@ exports[`<HumanActionPhase /> with scenario = HIT_THEM_WHERE_IT_HURTS, demonsInP
     <Button
       as="button"
       content="Any other tile (+2 Troglodytes)"
+      disabled={false}
       icon="square plus outline"
       onClick={[MockFunction]}
       role="button"
@@ -142,6 +151,42 @@ exports[`<HumanActionPhase /> with scenario = THE_RITUAL, oilForYourLamp = false
     fluid={true}
     vertical={true}
   >
+    <Button
+      as="button"
+      content="Next Phase"
+      icon="play"
+      onClick={[MockFunction]}
+      primary={true}
+      role="button"
+    />
+  </ButtonGroup>
+</div>
+`;
+
+exports[`<HumanActionPhase /> with scenario = THE_SURVIVORS, threatDice = 5 should match snapshot 1`] = `
+<div>
+  <p>
+    Record removed warriors and the following actions below:
+  </p>
+  <ButtonGroup
+    fluid={true}
+    vertical={true}
+  >
+    <Button
+      as="button"
+      content="Demonic Mechanism tile (+2 Threat)"
+      icon="cog"
+      onClick={[MockFunction]}
+      role="button"
+    />
+    <Button
+      as="button"
+      content="Any other tile (+1 Threat)"
+      disabled={false}
+      icon="square plus outline"
+      onClick={[MockFunction]}
+      role="button"
+    />
     <Button
       as="button"
       content="Next Phase"

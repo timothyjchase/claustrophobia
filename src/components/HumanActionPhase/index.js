@@ -15,14 +15,14 @@ const HumanActionPhase = ({
   <div>
     <p>Record removed warriors and the following actions below:</p>
     <Button.Group vertical fluid>
-      {!oilForYourLamp &&
-        scenarioKey !== 'THE_RITUAL' && (
-          <Button
-            icon="cog"
-            content="Demonic Mechanism tile (+2 Threat)"
-            onClick={placeDemonicMechanismTile}
-          />
-        )}
+      {scenarioKey !== 'THE_RITUAL' && (
+        <Button
+          disabled={oilForYourLamp}
+          icon="cog"
+          content="Demonic Mechanism tile (+2 Threat)"
+          onClick={placeDemonicMechanismTile}
+        />
+      )}
       {scenarioKey === 'THE_POSSESSED' && (
         <Button
           icon="box"
@@ -38,14 +38,14 @@ const HumanActionPhase = ({
             onClick={addDemon}
           />
         )}
-      {scenarioKey === 'HIT_THEM_WHERE_IT_HURTS' &&
-        threatDice >= 3 && (
-          <Button
-            icon="square plus outline"
-            content="Any other tile (+2 Troglodytes)"
-            onClick={placeTile}
-          />
-        )}
+      {scenarioKey === 'HIT_THEM_WHERE_IT_HURTS' && (
+        <Button
+          disabled={threatDice < 3}
+          icon="square plus outline"
+          content="Any other tile (+2 Troglodytes)"
+          onClick={placeTile}
+        />
+      )}
       <Button
         primary
         icon="play"

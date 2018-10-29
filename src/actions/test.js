@@ -48,6 +48,7 @@ describe('startGame', () => {
     })
   })
 })
+
 describe('resetGame', () => {
   describe('with no args', () => {
     const dispatch = jest.fn()
@@ -58,6 +59,7 @@ describe('resetGame', () => {
     })
   })
 })
+
 describe('undoLastChange', () => {
   describe('with no history', () => {
     const dispatch = jest.fn()
@@ -72,6 +74,38 @@ describe('undoLastChange', () => {
     it('should dispatch undo', () => {
       expect(dispatch).toBeCalled()
       expect(dispatch.mock.calls[0][0]).toEqual({ type: UNDO_LAST_CHANGE })
+    })
+  })
+})
+
+describe('completeInitiativePhase', () => {
+  describe('with no args', () => {
+    const dispatch = jest.fn()
+    completeInitiativePhase()(dispatch, () => ({ current: {} }))
+    it('should dispatch advance phase', () => {
+      expect(dispatch).toBeCalled()
+      expect(dispatch.mock.calls[0][0]).toEqual({
+        type: CHANGE_GAME_STATE,
+        payload: {
+          phase: HUMAN_ACTION_PHASE,
+        },
+      })
+    })
+  })
+})
+
+describe('completeHumanActionPhase', () => {
+  describe('with no args', () => {
+    const dispatch = jest.fn()
+    completeInitiativePhase()(dispatch, () => ({ current: {} }))
+    it('should dispatch advance phase', () => {
+      expect(dispatch).toBeCalled()
+      expect(dispatch.mock.calls[0][0]).toEqual({
+        type: CHANGE_GAME_STATE,
+        payload: {
+          phase: HUMAN_ACTION_PHASE,
+        },
+      })
     })
   })
 })
