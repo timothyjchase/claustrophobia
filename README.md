@@ -1,3 +1,42 @@
+# Welcome
+
+This project is a fan-made [single-player companion app](https://timothyjchase.github.io/claustrophobia/) for the Claustrophobia board game by CROC.
+
+In addition to enabling fans to play the board game solo, this project is intended to practice using various technologies. The objectives include:
+
+- Build the front-end with React
+- Achieve 100% unit test coverage using Jest and Enzyme
+- Build a Progressive Web App that works offline
+- Implement state management using Redux
+- Use Semantic-UI for default style
+- [Host](https://timothyjchase.github.io/claustrophobia/) on GitHub Pages
+
+# License
+
+MIT License
+
+Copyright (c) 2018 Timothy Chase
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+# Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
